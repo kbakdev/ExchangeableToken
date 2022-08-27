@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ExchangeableToken</string>
+    <string name="welcome_message">Welcome to ExchangeableToken!</string>
+    <string name="button_text">NEXT</string>
+</resources>
