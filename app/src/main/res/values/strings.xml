@@ -2,4 +2,10 @@
     <string name="app_name">ExchangeableToken</string>
     <string name="welcome_message">Welcome to ExchangeableToken!</string>
     <string name="button_text">NEXT</string>
+    <string name="login_failed" />
+    <string name="login_success_message" />
+    <string name="initial_title" />
+    <string name="logged_in_title" />
+    <string name="logged_out_title" />
+    <string name="user_profile_message" />
 </resources>
