@@ -14,40 +14,40 @@ import androidx.core.view.isVisible
 import com.example.exchangeabletoken.R.string.login_success_message
 import com.google.android.material.snackbar.Snackbar
 
-class LoginActivity : AppCompatActivity(){
-    // Access to onscreen controls
-    private lateinit var binding: ActivityLoginBinding
-
-    // App and user Status
-    private lateinit var account: Account
-    private var isLoggedIn = false
-    private var appJustLaunched = true
-    private var userIsAuthenticated = false
-
-    // Account data
-    private var user = User()
+class LoginActivity : AppCompatActivity() {
+//    // Access to onscreen controls
+//    private lateinit var binding: ActivityLoginBinding
+//
+//    // App and user Status
+//    private lateinit var account: Account
+//    private var isLoggedIn = false
+//    private var appJustLaunched = true
+//    private var userIsAuthenticated = false
+//
+//    // Account data
+//    private var user = User()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_log_in)
         // TODO: implement this
 //        binding = ActivityLoginBinding.inflate(layoutInflater)
-
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.root)
         // TODO: implement this
         // setContentView(binding.root)
 
-        account = Account("exchangeabletoken", "com.example.exchangeabletoken")
+//        account = Account("exchangeabletoken", "com.example.exchangeabletoken")
         // TODO: implement this
         //             getString(R.string.com_auth0_client_id),
         //            getString(R.string.com_auth0_domain)
 
         // TODO: implement this
-    //        binding.loginButton.setOnClickListener { login() }
-    //        binding.logoutButton.setOnClickListener { logout() }
+        //        binding.loginButton.setOnClickListener { login() }
+        //        binding.logoutButton.setOnClickListener { logout() }
 
     }
+}
 
-    private fun login() {
+//    private fun login() {
         // TODO: implement this
 //        WebAuthProvider.login(account).withScheme("Bearer").start(this, object : AuthCallback {
 //            override fun onFailure(error: String) {
@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity(){
 //                updateUI()
 //            }
 //        })
-    }
+//    }
 //
 //
 //    private fun logout() {
@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity(){
 //            }
 //        })
 //    }
-    private fun updateUI() {
+//    private fun updateUI() {
 //        if (appJustLaunched) {
 //            appJustLaunched = false
 //            binding.textviewTitle.text = getString(R.string.initial_title)
@@ -118,7 +118,7 @@ class LoginActivity : AppCompatActivity(){
 //
 //    binding.imageviewUser.isVisible = userIsAuthenticated
 //    binding.imageviewUser.load(user.picture)
-    }
+//    }
 
     // Utility functions
     // =================
@@ -130,7 +130,7 @@ class LoginActivity : AppCompatActivity(){
      * @param text The text that the SnackBar should display.
      */
 
-    private fun showSnackBar(text: String) {
-        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
-    }
-}
+//    private fun showSnackBar(text: String) {
+//        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
+//    }
+//}

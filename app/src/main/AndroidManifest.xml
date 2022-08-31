@@ -34,16 +34,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LogInActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".SignUpActivity"
             android:exported="true">
             <intent-filter>
@@ -77,6 +67,7 @@
         <activity android:name=".ChooseConfirmLogInActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SuccessfulSignUpActivity" />
+        <activity android:name=".LoginActivity" />
 
     </application>
 
