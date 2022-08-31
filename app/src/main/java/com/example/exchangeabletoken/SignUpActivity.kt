@@ -18,11 +18,21 @@ class SignUpActivity : AppCompatActivity() {
         // set onClickListener, on click button register with credentials
         // and go to SuccessfulSignUpActivity
         findViewById<Button>(R.id.register_with_credentials).setOnClickListener {
-            if (validateEmail(email.text.toString()) && validatePassword(password.text.toString())) {
-                val intent = Intent(this, SuccessfulSignUpActivity::class.java)
-                intent.putExtra("email", email.text.toString())
-                intent.putExtra("password", password.text.toString())
-                startActivity(intent)
+
+            // check if email is valid
+            if (validateEmail(email.text.toString())) {
+                // check if password is valid
+                if (validatePassword(password.text.toString())) {
+                    // go to SuccessfulSignUpActivity
+                    val intent = Intent(this, SuccessfulSignUpActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // show error message
+                    password.error = "Password must be at least 6 characters"
+                }
+            } else {
+                // show error message
+                email.error = "Email is not valid"
             }
         }
     }
