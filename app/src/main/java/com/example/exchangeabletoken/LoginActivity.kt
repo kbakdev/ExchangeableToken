@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.inflate
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ColorStateListInflaterCompat.inflate
 import androidx.core.content.res.ComplexColorCompat.inflate
@@ -30,11 +31,31 @@ class LoginActivity : AppCompatActivity() {
 //    private var user = User()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+
+        val email = findViewById<EditText>(R.id.log_in_email_input)
+        val password = findViewById<EditText>(R.id.log_in_password_input)
+
         findViewById<Button>(R.id.log_in_button).setOnClickListener {
-            val intent = Intent(this, MarketActivity::class.java)
-            startActivity(intent)
+
+            // check if email is valid
+            if (Validation.validateEmail(email.text.toString())) {
+
+                // check if password is valid
+                if (Validation.validatePassword(password.text.toString())) {
+                    // go to SuccessfulSignUpActivity
+                    val intent = Intent(this, MarketActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // show error message
+                    password.error = "Password must be at least 6 characters"
+                }
+            } else {
+                // show error message
+                email.error = "Email is not valid"
+            }
         }
         // TODO: implement this
 //        binding = ActivityLoginBinding.inflate(layoutInflater)

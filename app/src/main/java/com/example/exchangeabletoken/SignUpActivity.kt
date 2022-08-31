@@ -20,9 +20,9 @@ class SignUpActivity : AppCompatActivity() {
         findViewById<Button>(R.id.register_with_credentials).setOnClickListener {
 
             // check if email is valid
-            if (validateEmail(email.text.toString())) {
+            if (Validation.validateEmail(email.text.toString())) {
                 // check if password is valid
-                if (validatePassword(password.text.toString())) {
+                if (Validation.validatePassword(password.text.toString())) {
                     // go to SuccessfulSignUpActivity
                     val intent = Intent(this, SuccessfulSignUpActivity::class.java)
                     startActivity(intent)
@@ -35,13 +35,5 @@ class SignUpActivity : AppCompatActivity() {
                 email.error = "Email is not valid"
             }
         }
-    }
-
-    private fun validateEmail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
-    private fun validatePassword(password: String): Boolean {
-        return password.length >= 6
     }
 }
