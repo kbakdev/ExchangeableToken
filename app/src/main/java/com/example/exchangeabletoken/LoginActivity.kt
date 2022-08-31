@@ -1,11 +1,13 @@
 package com.example.exchangeabletoken
 
 import android.accounts.Account
+import android.content.Intent
 import android.graphics.Color
 import android.net.Credentials
 import android.os.Bundle
 import android.view.View
 import android.view.View.inflate
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ColorStateListInflaterCompat.inflate
 import androidx.core.content.res.ComplexColorCompat.inflate
@@ -30,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+        findViewById<Button>(R.id.log_in_button).setOnClickListener {
+            val intent = Intent(this, MarketActivity::class.java)
+            startActivity(intent)
+        }
         // TODO: implement this
 //        binding = ActivityLoginBinding.inflate(layoutInflater)
         // TODO: implement this

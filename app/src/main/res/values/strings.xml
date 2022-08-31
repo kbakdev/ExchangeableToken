@@ -8,4 +8,5 @@
     <string name="logged_in_title" />
     <string name="logged_out_title" />
     <string name="user_profile_message" />
+    <string name="log_in">log in</string>
 </resources>
