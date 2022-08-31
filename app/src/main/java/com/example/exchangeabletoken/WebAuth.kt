@@ -1,6 +1,6 @@
 package com.example.exchangeabletoken
 
-class WebAuth {
+object WebAuth {
     fun getAuthUrl(redirectUrl: String): String {
         return "https://auth.exchangeabletoken.com/auth?redirect_uri=$redirectUrl"
     }
