@@ -1,163 +1,108 @@
 package com.example.exchangeabletoken
 
-import android.accounts.Account
 import android.content.Intent
-import android.graphics.Color
-import android.net.Credentials
 import android.os.Bundle
 import android.view.View
-import android.view.View.inflate
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ColorStateListInflaterCompat.inflate
-import androidx.core.content.res.ComplexColorCompat.inflate
-import androidx.core.graphics.drawable.DrawableCompat.inflate
-import androidx.core.view.isVisible
-import com.example.exchangeabletoken.R.string.login_success_message
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.widget.NestedScrollView
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
-class LoginActivity : AppCompatActivity() {
-//    // Access to onscreen controls
-//    private lateinit var binding: ActivityLoginBinding
-//
-//    // App and user Status
-//    private lateinit var account: Account
-//    private var isLoggedIn = false
-//    private var appJustLaunched = true
-//    private var userIsAuthenticated = false
-//
-//    // Account data
-//    private var user = User()
-
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
+    private val activity = this@LoginActivity
+    private lateinit var nestedScrollView: NestedScrollView
+    private lateinit var textInputLayoutEmail: TextInputLayout
+    private lateinit var textInputLayoutPassword: TextInputLayout
+    private lateinit var textInputEditTextEmail: TextInputEditText
+    private lateinit var textInputEditTextPassword: TextInputEditText
+    private lateinit var appCompatButtonLogin: AppCompatButton
+    private lateinit var textViewLinkRegister: AppCompatTextView
+    private lateinit var inputValidation: Validation
+    private lateinit var databaseHelper: DatabaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
-
-        val email = findViewById<EditText>(R.id.log_in_email_input)
-        val password = findViewById<EditText>(R.id.log_in_password_input)
-
-        findViewById<Button>(R.id.log_in_button).setOnClickListener {
-
-            // check if email is valid
-            if (Validation.validateEmail(email.text.toString())) {
-
-                // check if password is valid
-                if (Validation.validatePassword(password.text.toString())) {
-                    // go to SuccessfulSignUpActivity
-                    val intent = Intent(this, MarketActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    // show error message
-                    password.error = "Password must be at least 6 characters"
-                }
-            } else {
-                // show error message
-                email.error = "Email is not valid"
-            }
+        // hiding the action bar
+        supportActionBar!!.hide()
+        // initializing the views
+        initViews()
+        // initializing the listeners
+        initListeners()
+        // initializing the objects
+        initObjects()
+    }
+    /**
+     * This method is to initialize views
+     */
+    private fun initViews() {
+//        nestedScrollView = findViewById(R.id.nestedScrollView) as NestedScrollView
+//        textInputLayoutEmail = findViewById(R.id.textInputLayoutEmail) as TextInputLayout
+//        textInputLayoutPassword = findViewById(R.id.textInputLayoutPassword) as TextInputLayout
+//        textInputEditTextEmail = findViewById(R.id.textInputEditTextEmail) as TextInputEditText
+//        textInputEditTextPassword = findViewById(R.id.textInputEditTextPassword) as TextInputEditText
+//        appCompatButtonLogin = findViewById(R.id.appCompatButtonLogin) as AppCompatButton
+//        textViewLinkRegister = findViewById(R.id.textViewLinkRegister) as AppCompatTextView
+    }
+    /**
+     * This method is to initialize listeners
+     */
+    private fun initListeners() {
+        appCompatButtonLogin!!.setOnClickListener(this)
+        textViewLinkRegister!!.setOnClickListener(this)
+    }
+    /**
+     * This method is to initialize objects to be used
+     */
+    private fun initObjects() {
+        databaseHelper = DatabaseHelper(activity)
+        inputValidation = Validation(activity)
+    }
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
+    override fun onClick(v: View) {
+        when (v.id) {
+//            R.id.appCompatButtonLogin -> verifyFromSQLite()
+//            R.id.textViewLinkRegister -> {
+//                // Navigate to RegisterActivity
+//                val intentRegister = Intent(applicationContext, SignUpActivity::class.java)
+//                startActivity(intentRegister)
+//            }
         }
-        // TODO: implement this
-//        binding = ActivityLoginBinding.inflate(layoutInflater)
-        // TODO: implement this
-        // setContentView(binding.root)
-
-//        account = Account("exchangeabletoken", "com.example.exchangeabletoken")
-        // TODO: implement this
-        //             getString(R.string.com_auth0_client_id),
-        //            getString(R.string.com_auth0_domain)
-
-        // TODO: implement this
-        //        binding.loginButton.setOnClickListener { login() }
-        //        binding.logoutButton.setOnClickListener { logout() }
-
+    }
+    /**
+     * This method is to validate the input text fields and verify login credentials from SQLite
+     */
+    private fun verifyFromSQLite() {
+        if (!inputValidation!!.isInputEditTextFilled(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+            return
+        }
+        if (!inputValidation!!.isInputEditTextEmail(textInputEditTextEmail!!, textInputLayoutEmail!!, getString(R.string.error_message_email))) {
+            return
+        }
+        if (!inputValidation!!.isInputEditTextFilled(textInputEditTextPassword!!, textInputLayoutPassword!!, getString(R.string.error_message_email))) {
+            return
+        }
+        if (databaseHelper!!.checkUser(textInputEditTextEmail!!.text.toString().trim { it <= ' ' }, textInputEditTextPassword!!.text.toString().trim { it <= ' ' })) {
+            val accountsIntent = Intent(activity, UsersListActivity::class.java)
+            accountsIntent.putExtra("EMAIL", textInputEditTextEmail!!.text.toString().trim { it <= ' ' })
+            emptyInputEditText()
+            startActivity(accountsIntent)
+        } else {
+            // Snack Bar to show success message that record is wrong
+            Snackbar.make(nestedScrollView!!, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show()
+        }
+    }
+    /**
+     * This method is to empty all input edit text
+     */
+    private fun emptyInputEditText() {
+        textInputEditTextEmail!!.text = null
+        textInputEditTextPassword!!.text = null
     }
 }
-
-//    private fun login() {
-        // TODO: implement this
-//        WebAuthProvider.login(account).withScheme("Bearer").start(this, object : AuthCallback {
-//            override fun onFailure(error: String) {
-//                showSnackBar(getString(R.string.login_failed))
-//            }
-//
-//            override fun onSuccess(token: String) {
-//                userIsAuthenticated = true
-////                TODO: implement this
-////                 val idToken = credentials.idToken
-////                 user = User(idToken)
-////                 showSnackBar(getString(login_success_message, user.name))
-//                isLoggedIn = true
-//                userIsAuthenticated = true
-//                updateUI()
-//            }
-//        })
-//    }
-//
-//
-//    private fun logout() {
-//        WebAuthProvider.logout(account).withScheme(getString(R.string.com_auth_scheme)).start(this, object : AuthCallback {
-//            override fun onFailure(exception: AuthenticationException) {
-//                // for some reason, logout failed
-//                showSnackBar(getString(R.string.general_failure_with_exception_code, exception.getCode()))
-//            }
-//            override fun onSuccess(payload: Void?) {
-//                // The user successfully logged out
-//                user = User()
-//                userIsAuthenticated = false
-//                isLoggedIn = false
-//                updateUI()
-//            }
-//        })
-//    }
-//    private fun updateUI() {
-//        if (appJustLaunched) {
-//            appJustLaunched = false
-//            binding.textviewTitle.text = getString(R.string.initial_title)
-//            appJustLaunched = false
-//        } else {
-//            if (isLoggedIn) {
-//                binding.textviewTitle.text = getString(R.string.logged_in_title)
-//            } else {
-//                binding.textviewTitle.text = getString(R.string.logged_out_title)
-//            }
-//        }
-//
-//    binding.buttonLogin.visibility = if (isLoggedIn) View.GONE else View.VISIBLE
-//    binding.buttonLogout.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
-//
-//    binding.buttonLogin.setOnClickListener { login() }
-//    binding.buttonLogout.setOnClickListener { logout() }
-//
-//    binding.buttonLogin.isEnabled = !isLoggedIn
-//    binding.buttonLogout.isEnabled = isLoggedIn
-//
-//    binding.buttonLogin.setTextColor(if (isLoggedIn) Color.GRAY else Color.BLACK)
-//    binding.buttonLogout.setTextColor(if (isLoggedIn) Color.BLACK else Color.GRAY)
-//
-//    binding.buttonLogin.isEnabled = !userIsAuthenticated
-//    binding.buttonLogout.isEnabled = userIsAuthenticated
-//
-//    binding.textviewUserProfile.isVisible = userIsAuthenticated
-//    binding.textviewUserProfile.text = getString(R.string.user_profile_message, user.name, user.email)
-//
-//    binding.textviewTitle.isVisible = !userIsAuthenticated
-//
-//    binding.imageviewUser.isVisible = userIsAuthenticated
-//    binding.imageviewUser.load(user.picture)
-//    }
-
-    // Utility functions
-    // =================
-
-    /**
-     * This is a convenience method that simplifies the process
-     * of displaying a SnackBar.
-     *
-     * @param text The text that the SnackBar should display.
-     */
-
-//    private fun showSnackBar(text: String) {
-//        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
-//    }
-//}

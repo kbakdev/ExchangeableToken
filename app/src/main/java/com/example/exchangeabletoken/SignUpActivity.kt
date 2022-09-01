@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 class SignUpActivity : AppCompatActivity() {
+    private lateinit var inputValidation: Validation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -20,9 +21,9 @@ class SignUpActivity : AppCompatActivity() {
         findViewById<Button>(R.id.register_with_credentials).setOnClickListener {
 
             // check if email is valid
-            if (Validation.validateEmail(email.text.toString())) {
+            if (inputValidation.isEmailValid(email.text.toString())) {
                 // check if password is valid
-                if (Validation.validatePassword(password.text.toString())) {
+                if (inputValidation.isPasswordValid(password.text.toString())) {
                     // go to SuccessfulSignUpActivity
                     val intent = Intent(this, SuccessfulSignUpActivity::class.java)
                     startActivity(intent)
