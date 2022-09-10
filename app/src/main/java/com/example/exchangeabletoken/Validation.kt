@@ -83,4 +83,12 @@ class Validation
         val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
+
+    fun isEmailValid(toString: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(toString).matches()
+    }
+
+    fun isPasswordValid(toString: String): Boolean {
+        return toString.length > 5
+    }
 }
