@@ -74,12 +74,15 @@ class LoginActivity : AppCompatActivity() {
 <<<<<<< HEAD
 <<<<<<< HEAD
             val intent = Intent(this, MarketActivity::class.java)
+<<<<<<< HEAD
 =======
             val intent = Intent(this, MainActivity::class.java)
 >>>>>>> 142d84d (feat: added login to firebase, and connection with login provider)
 =======
             val intent = Intent(this, MarketActivity::class.java)
 >>>>>>> 09e6990 (feat: market and login)
+=======
+>>>>>>> 0ebddca (feat: login)
             startActivity(intent)
         }
     }
