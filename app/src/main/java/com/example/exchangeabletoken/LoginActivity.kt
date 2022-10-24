@@ -9,64 +9,70 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
+import com.example.exchangeabletoken.WebAuth.login
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
+private lateinit var auth: FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
-//    // Access to onscreen controls
-//    private lateinit var binding: ActivityLoginBinding
-//
-//    // App and user Status
-//    private lateinit var account: Account
-//    private var isLoggedIn = false
-//    private var appJustLaunched = true
-//    private var userIsAuthenticated = false
-//
-//    // Account data
-//    private var user = User()
 
+    // draw login activity
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
 
-        val email = findViewById<EditText>(R.id.log_in_email_input)
-        val password = findViewById<EditText>(R.id.log_in_password_input)
+        // initialize firebase auth
+        auth = FirebaseAuth.getInstance()
 
-        findViewById<Button>(R.id.log_in_button).setOnClickListener {
-
-            // check if email is valid
-            if (email.text.toString().isNotEmpty()) {
-
-                // check if password is valid
-                if (password.text.toString().isNotEmpty()) {
-                    // go to SuccessfulSignUpActivity
-                    val intent = Intent(this, MarketActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    // show error message
-                    password.error = "Password must be at least 6 characters"
-                }
-            } else {
-                // show error message
-                email.error = "Email is not valid"
-            }
+        // add logic to login button
+        val loginButton = findViewById<Button>(R.id.log_in_button)
+        loginButton.setOnClickListener {
+            login()
         }
-        // TODO: implement this
-//        binding = ActivityLoginBinding.inflate(layoutInflater)
-        // TODO: implement this
-        // setContentView(binding.root)
+    }
 
-//        account = Account("exchangeabletoken", "com.example.exchangeabletoken")
-        // TODO: implement this
-        //             getString(R.string.com_auth0_client_id),
-        //            getString(R.string.com_auth0_domain)
+    private fun login() {
+        // get email and password from text fields
+        val email = findViewById<EditText>(R.id.log_in_email).text.toString()
+        val password = findViewById<EditText>(R.id.log_in_password).text.toString()
 
-        // TODO: implement this
-        //        binding.loginButton.setOnClickListener { login() }
-        //        binding.logoutButton.setOnClickListener { logout() }
+        // check if email and password are empty
+        if (email.isEmpty() || password.isEmpty()) {
+            Snackbar.make(findViewById(R.id.log_in_layout), "Please fill in all fields", Snackbar.LENGTH_LONG).show()
+            return
+        }
 
+        // sign in with email and password
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // sign in success, update UI with the signed-in user's information
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    // if sign in fails, display a message to the user.
+                    Snackbar.make(findViewById(R.id.log_in_layout), "Authentication failed.", Snackbar.LENGTH_LONG).show()
+                    updateUI(null)
+                }
+            }
+        return
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
