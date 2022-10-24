@@ -4,11 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+<<<<<<< HEAD
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
+=======
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+>>>>>>> 09e6990 (feat: market and login)
 import com.google.firebase.ktx.Firebase
 
 class MarketActivity : AppCompatActivity() {
@@ -19,11 +24,22 @@ class MarketActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_activity)
+<<<<<<< HEAD
         // set current user name for UI element with id "current_user_name" if user is logged in
         if (Firebase.auth.currentUser != null) {
             val currentUser = Firebase.auth.currentUser
             val currentUserName = findViewById<TextView>(R.id.current_user_name)
             "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
+=======
+
+        // Handle log out button
+        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            Firebase.auth.signOut()
+            finish()
+        }
+    }
+>>>>>>> 09e6990 (feat: market and login)
 
             // get user's information from Firebase realtime database
             val database = Firebase.database
@@ -79,3 +95,10 @@ class MarketActivity : AppCompatActivity() {
     }
 }
 
+<<<<<<< HEAD
+=======
+private operator fun Unit.get(position: Int): CharSequence? {
+    return MarketService.getMarketData()[position]
+}
+
+>>>>>>> 09e6990 (feat: market and login)
