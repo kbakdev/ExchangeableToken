@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-private lateinit var auth: FirebaseAuth
+lateinit var auth: FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MarketActivity::class.java)
             startActivity(intent)
         }
     }
