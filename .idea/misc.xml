@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/font/paytone_one.xml" value="0.26458333333333334" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_add_transaction.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_choose_sign_up.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_exchangeable_token.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_log_in.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_search_product.xml" value="0.11398176291793313" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_second.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_sign_up.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_successful_sign_up.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_transaction.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/activity_wallet_status.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/content_add_transaction.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/content_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/fragment_first.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/fragment_first2.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/fragment_second.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/fragment_second2.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/fragment_transaction.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/market_activity.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/product_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/root.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/settings_activity.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/settings_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/text_row_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mateu/Desktop/kotlin/ExchangeableToken/app/src/main/res/layout/wallet_activity.xml" value="0.22826086956521738" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
+</project>
