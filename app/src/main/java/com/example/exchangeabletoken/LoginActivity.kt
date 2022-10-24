@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.widget.NestedScrollView
+import com.example.exchangeabletoken.WebAuth.login
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -70,7 +71,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
+<<<<<<< HEAD
             val intent = Intent(this, MarketActivity::class.java)
+=======
+            val intent = Intent(this, MainActivity::class.java)
+>>>>>>> 142d84d (feat: added login to firebase, and connection with login provider)
             startActivity(intent)
         }
     }
