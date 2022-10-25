@@ -1,7 +1,10 @@
 package com.example.exchangeabletoken
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 // MarketActivity - used to display the market data
 // Use CustomAdapter to display the market data
@@ -11,10 +14,13 @@ class MarketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_activity)
-        // Use CustomAdapter to display the market data
-        val adapter = CustomAdapter(this, MarketService.getMarketData())
-        val listView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.listView)
-        listView.adapter = adapter
+
+        // Handle log out button
+        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            Firebase.auth.signOut()
+            finish()
+        }
     }
 
     operator fun get(position: Int): CharSequence? {
@@ -25,3 +31,4 @@ class MarketActivity : AppCompatActivity() {
 private operator fun Unit.get(position: Int): CharSequence? {
     return MarketService.getMarketData()[position]
 }
+
