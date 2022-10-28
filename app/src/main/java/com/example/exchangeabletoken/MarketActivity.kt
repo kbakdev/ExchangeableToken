@@ -1,13 +1,9 @@
 package com.example.exchangeabletoken
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-// MarketActivity - used to display the market data
-// Use CustomAdapter to display the market data
 class MarketActivity : AppCompatActivity() {
     val size: Int = 0
 
@@ -16,13 +12,16 @@ class MarketActivity : AppCompatActivity() {
         setContentView(R.layout.market_activity)
 
         // Handle log out button
-        val logoutButton = findViewById<Button>(R.id.logoutButton)
-        logoutButton.setOnClickListener {
-            Firebase.auth.signOut()
-            finish()
+//        val logoutButton = findViewById<Button>(R.id.logoutButton)
+//        logoutButton.setOnClickListener {
+//            Firebase.auth.signOut()
+//            finish()
+//        }
+        val walletButton = findViewById<FloatingActionButton>(R.id.walletButton)
+        walletButton.setOnClickListener {
+            // pop up a dialog with wallet
         }
     }
-
     operator fun get(position: Int): CharSequence? {
         return MarketService.getMarketData()[position]
     }
