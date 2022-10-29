@@ -8,4 +8,16 @@
         <item name="colorControlNormal">@color/colorText</item>
         <item name="colorControlActivated">@color/colorText</item>
     </style>
+
+    <style name="ClassyButton">
+        <item name="android:layout_width">155dp</item>
+        <item name="android:layout_height">58dp</item>
+        <item name="android:layout_marginTop">96dp</item>
+        <item name="android:background">@color/colorTextBlack</item>
+        <item name="android:foregroundTint">@color/colorTextBlack</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHighlight">#D41E1E</item>
+        <item name="android:textColorHint">#FF0909</item>
+        <item name="android:textColorLink">#C62323</item>
+    </style>
 </resources>
