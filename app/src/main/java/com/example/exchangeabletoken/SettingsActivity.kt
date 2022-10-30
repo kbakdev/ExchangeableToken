@@ -1,9 +1,14 @@
 package com.example.exchangeabletoken
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
@@ -13,6 +18,18 @@ class SettingsActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.settings, SettingsFragment())
+            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.settings, SettingsFragment())
+                .commit()
+        } else {
+            title = savedInstanceState.getCharSequence(TITLE_TAG)
+        }
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -27,6 +44,13 @@ class SettingsActivity : AppCompatActivity(),
             }
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val logOutButton = findViewById<Button>(R.id.logout_button)
+        logOutButton.setOnClickListener {
+            Firebase.auth.signOut()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -79,6 +103,48 @@ class SettingsActivity : AppCompatActivity(),
     class SyncFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.sync_preferences, rootKey)
+        }
+    }
+
+    class AccountFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.account_preferences, rootKey)
+        }
+    }
+
+    class NotificationsFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.notifications_preferences, rootKey)
+        }
+    }
+
+    class PrivacyFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.privacy_preferences, rootKey)
+        }
+    }
+
+    class HelpFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.help_preferences, rootKey)
+        }
+    }
+
+    class AboutFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.about_preferences, rootKey)
+        }
+    }
+
+    class ExchangeableTokenFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.exchangeable_token_preferences, rootKey)
+        }
+    }
+
+    class LogOutFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.log_out_preferences, rootKey)
         }
     }
 }
