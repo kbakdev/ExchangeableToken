@@ -1,8 +1,11 @@
 package com.example.exchangeabletoken
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MarketActivity : AppCompatActivity() {
     val size: Int = 0
@@ -11,12 +14,12 @@ class MarketActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_activity)
 
-        // Handle log out button
-//        val logoutButton = findViewById<Button>(R.id.logoutButton)
-//        logoutButton.setOnClickListener {
-//            Firebase.auth.signOut()
-//            finish()
-//        }
+//         Handle log out button
+        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        logoutButton.setOnClickListener {
+            Firebase.auth.signOut()
+            finish()
+        }
         val walletButton = findViewById<FloatingActionButton>(R.id.walletButton)
         walletButton.setOnClickListener {
             // pop up a dialog with wallet
