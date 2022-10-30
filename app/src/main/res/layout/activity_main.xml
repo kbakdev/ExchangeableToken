@@ -26,6 +26,7 @@
         android:id="@+id/next_button"
         style="@style/ClassyButton"
         android:text="@string/button_text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
