@@ -31,4 +31,5 @@
     <string name="text_hello2">You have PLN 0.00 to spend.</string>
     <string name="text_title">Android Tutorials Hub</string>
     <string name="wallet">wallet</string>
+    <string name="logout">logout</string>
 </resources>
