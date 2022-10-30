@@ -59,6 +59,7 @@ class SignUpActivity : AppCompatActivity() {
                             val user = auth.currentUser
                             val intent = Intent(this, MarketActivity::class.java)
                             startActivity(intent)
+                            finish()
                         } else {
                             // If sign in fails, display a message to the user.
                             Snackbar.make(
