@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="56dp"
-        android:layout_height="601dp"
+        android:layout_width="35dp"
+        android:layout_height="671dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
@@ -20,21 +20,12 @@
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/walletButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:contentDescription="@string/wallet"
-            android:focusable="true"
-            app:srcCompat="@drawable/ic_baseline_account_balance_wallet_24"
-            tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="350dp"
-        android:layout_height="598dp"
+        android:layout_width="277dp"
+        android:layout_height="705dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="3dp"
@@ -43,7 +34,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.547">
 
         <TextView
             android:id="@+id/textView12"
@@ -57,5 +49,25 @@
             android:layout_height="wrap_content"
             android:text="@string/text_hello2" />
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/walletButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/wallet"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_baseline_account_balance_wallet_24"
+        tools:ignore="ImageContrastCheck"
+        tools:layout_editor_absoluteX="339dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

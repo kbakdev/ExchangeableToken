@@ -10,8 +10,10 @@
         android:layout_width="407dp"
         android:layout_height="599dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="2dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_editor_absoluteX="2dp">
 
         <TextView
             android:id="@+id/textView8"
@@ -93,9 +95,11 @@
 
         <Button
             android:id="@+id/signUpButton"
+            style="@style/ClassyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_register" />
+            android:text="@string/text_register"
+            android:textSize="20dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
