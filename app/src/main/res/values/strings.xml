@@ -32,4 +32,5 @@
     <string name="text_title">Android Tutorials Hub</string>
     <string name="wallet">wallet</string>
     <string name="logout">logout</string>
+    <string name="legend">* - data marked with this symbol are required for registration</string>
 </resources>
