@@ -1,5 +1,7 @@
 package com.example.exchangeabletoken
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 class MarketActivity : AppCompatActivity() {
     val size: Int = 0
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_activity)
@@ -23,6 +26,12 @@ class MarketActivity : AppCompatActivity() {
         val walletButton = findViewById<FloatingActionButton>(R.id.walletButton)
         walletButton.setOnClickListener {
             // pop up a dialog with wallet
+        }
+        // handle settings button
+        val settingsButton = findViewById<FloatingActionButton>(R.id.settings_button)
+        settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
     operator fun get(position: Int): CharSequence? {

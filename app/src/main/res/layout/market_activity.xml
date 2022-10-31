@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="35dp"
-        android:layout_height="671dp"
+        android:layout_width="125dp"
+        android:layout_height="707dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
@@ -20,6 +20,38 @@
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="@string/logout"
+            app:layout_constraintBottom_toTopOf="@+id/walletButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/walletButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:contentDescription="@string/wallet"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_baseline_account_balance_wallet_24"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/settings_button"
+            android:layout_width="76dp"
+            android:layout_height="72dp"
+            android:layout_marginBottom="636dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_settings_24" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,26 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_hello2" />
+
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/walletButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:contentDescription="@string/wallet"
-        android:focusable="true"
-        app:srcCompat="@drawable/ic_baseline_account_balance_wallet_24"
-        tools:ignore="ImageContrastCheck"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="59dp" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
