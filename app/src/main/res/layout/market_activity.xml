@@ -52,6 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_settings_24" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -80,6 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_hello2" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/product_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24" />
 
     </LinearLayout>
 
