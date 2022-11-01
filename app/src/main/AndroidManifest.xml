@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.exchangeabletoken">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -13,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExchangeableToken"
         tools:targetApi="33">
+        <activity
+            android:name=".ProductActivity"
+            android:exported="false"
+            android:label="@string/title_activity_product"
+            android:theme="@style/Theme.ExchangeableToken.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".WalletStatus"
             android:exported="true">
