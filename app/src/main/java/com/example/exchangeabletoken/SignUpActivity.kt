@@ -57,6 +57,8 @@ class SignUpActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
                             val user = auth.currentUser
+                            val db = DataBaseService()
+                            db.addUser(user!!.uid, name.text.toString(), email.text.toString(), phone.text.toString(), address.text.toString())
                             val intent = Intent(this, MarketActivity::class.java)
                             startActivity(intent)
                             finish()
