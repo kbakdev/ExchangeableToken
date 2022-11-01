@@ -49,4 +49,152 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="sync_summary_on">Synchronize email every 15 minutes</string>
+
+    <!-- Other Preferences -->
+    <string name="signature_summary">Your signature will be added to the end of your outgoing
+        messages</string>
+    <string name="reply_summary">Choose the default action for replying to messages</string>
+    <string name="sync_summary_off">Do not synchronize email</string>
+    <string name="sync_interval_title">Sync interval</string>
+    <string name="sync_interval_summary">Choose how often you want to sync your email</string>
+    <string name="sync_interval_15">15 minutes</string>
+    <string name="sync_interval_30">30 minutes</string>
+    <string name="sync_interval_60">1 hour</string>
+    <string name="sync_interval_180">3 hours</string>
+    <string name="sync_interval_360">6 hours</string>
+    <string name="sync_interval_720">12 hours</string>
+    <string name="sync_interval_1440">24 hours</string>
+    <string name="reply_to_all">Reply to all</string>
+    <string name="reply_to_sender">Reply to sender</string>
+    <string name="reply_to_none">Do not reply</string>
+    <string name="signature_default">Sent from my Android device</string>
+    <string name="signature_hint">Enter your signature</string>
+    <string name="signature_dialog_title">Signature</string>
+    <string name="signature_dialog_message">Enter your signature</string>
+    <string name="signature_dialog_ok">OK</string>
+    <string name="signature_dialog_cancel">Cancel</string>
+    <string name="signature_dialog_clear">Clear</string>
+    <string name="signature_dialog_clear_confirm">Are you sure you want to clear your signature?</string>
+    <string name="signature_dialog_clear_yes">Yes</string>
+    <string name="signature_dialog_clear_no">No</string>
+    <string name="signature_dialog_error">Unable to save signature</string>
+    <string name="signature_dialog_error_title">Error</string>
+    <string name="signature_dialog_error_ok">OK</string>
+    <string name="signature_dialog_error_message">Unable to save signature</string>
+    <string name="signature_dialog_error_details">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_auth">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_network">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_server">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_io">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_parse">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_security">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_ssl">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_certificate">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_timeout">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown_host">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_connect">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown_service">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_protocol">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_failed">There was an error saving your signature. Please
+    try again.</string>
+    <string name="signature_dialog_error_details_cancelled">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unavailable">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_found">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_conflict">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_compression">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_gone">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_length_required">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_precondition">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_too_large">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_type">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_encoding">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_charset">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_retry">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_redirect">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_client">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_blocked">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_transparent">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_secure">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_trusted">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_available">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_allowed">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_implemented">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_supported">There was an error saving your signature. Please
+        try again.</string>
+    <string name="virtual_keyboard">Virtual Keyboard</string>
+    <string name="virtual_keyboard_description">Use the virtual keyboard to enter text</string>
+    <string name="virtual_keyboard_title">Virtual Keyboard</string>
+    <string name="virtual_keyboard_message">Use the virtual keyboard to enter text</string>
+    <string name="virtual_keyboard_ok">OK</string>
+    <string name="virtual_keyboard_cancel">Cancel</string>
+    <string name="virtual_keyboard_error">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_network">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_server">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_io">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_parse">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_security">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_ssl">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_certificate">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_timeout">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown_host">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_connect">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown_service">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_protocol">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unsupported">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_failed">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_cancelled">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unavailable">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_not_found">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_conflict">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_wallet">Virtual Wallet</string>
+    <string name="virtual_wallet_account_balance">PLN 0.00 to spend</string>
+    <string name="virtual_wallet_description">This is your virtual wallet.</string>
+    <string name="virtual_wallet_account_balance_title">Virtual Wallet</string>
+    <string name="virtual_wallet_account_balance_message">PLN 0.00 to spend</string>
+    <string name="virtual_wallet_account_balance_ok">OK</string>
+    <string name="virtual_wallet_account_balance_cancel">Cancel</string>
+    <string name="virtual_wallet_account_balance_error">There was an error using the virtual wallet. Please try again.</string>
 </resources>

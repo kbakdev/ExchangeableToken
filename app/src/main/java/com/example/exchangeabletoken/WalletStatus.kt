@@ -1,11 +1,11 @@
 package com.example.exchangeabletoken
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 
-class WalletActivity : AppCompatActivity() {
+class WalletStatus : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.wallet_activity)
+        setContentView(R.layout.activity_wallet_status)
     }
 }
