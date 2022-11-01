@@ -25,7 +25,8 @@ class MarketActivity : AppCompatActivity() {
         }
         val walletButton = findViewById<FloatingActionButton>(R.id.walletButton)
         walletButton.setOnClickListener {
-            // pop up a dialog with wallet
+            val intent = Intent(this, WalletStatus::class.java)
+            startActivity(intent)
         }
         // handle settings button
         val settingsButton = findViewById<FloatingActionButton>(R.id.settings_button)
