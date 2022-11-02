@@ -1,7 +1,7 @@
 package com.example.exchangeabletoken
 
-class FirebaseDatabase {
-    companion object {
+class ActivityProductBinding {
+companion object {
         fun getMarketData(): List<DataProduct> {
             return listOf(
                 DataProduct(1, "Apple", 10, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),

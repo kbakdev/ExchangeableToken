@@ -29,6 +29,24 @@ class ProductActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             DataBaseService.createProduct()
         }
+
+        // add product handle button
+        binding.addProduct.setOnClickListener {
+            // validate input
+            if (binding.productName.text.toString().isNotEmpty() && binding.price.text.toString().isNotEmpty() && binding.productImage.text.toString().isNotEmpty() && binding.category.text.toString().isNotEmpty()) {
+                // add product
+                DataBaseService.addProduct(binding.productName.text.toString(), binding.price.text.toString().toInt(), binding.productImage.text.toString(), binding.category.text.toString())
+                // clear input
+                binding.productName.text.clear()
+                binding.price.text.clear()
+                binding.productImage.text.clear()
+                binding.category.text.clear()
+                // show success message
+                Snackbar.make(binding.root, "Product added successfully", Snackbar.LENGTH_LONG).show()
+            } else {
+                Snackbar.make(it, "Please fill all input", Snackbar.LENGTH_LONG).show()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
