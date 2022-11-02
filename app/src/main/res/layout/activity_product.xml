@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTextWhite"
     tools:context=".ProductActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -14,22 +15,27 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="72dp"
+            android:background="#FFFFFF"
             app:popupTheme="@style/Theme.ExchangeableToken.PopupOverlay" />
 
         <LinearLayout
             android:layout_width="209dp"
             android:layout_height="540dp"
+            android:background="#FFFFFF"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autofillHints="Product category"
                 android:ems="10"
+                android:fontFamily="sans-serif-smallcaps"
+                android:hint="Product category"
                 android:inputType="textPersonName"
-                android:text="Category of product"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="333dp" />
 
@@ -38,8 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="sans-serif-smallcaps"
+                android:hint="Link to image"
                 android:inputType="textPersonName"
-                android:text="Link to image"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -48,7 +57,7 @@
                 app:layout_constraintVertical_bias="0.784" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/text_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="379dp"
@@ -66,6 +75,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -78,8 +91,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="sans-serif-smallcaps"
+                android:hint="Product name"
                 android:inputType="textPersonName"
-                android:text="Product Name"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment_content_product"
                 app:layout_constraintHorizontal_bias="0.0"

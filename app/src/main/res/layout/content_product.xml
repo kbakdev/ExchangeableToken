@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:srcCompat="@drawable/ic_launcher_foreground"
+        app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24"
         tools:layout_editor_absoluteX="339dp"
         tools:layout_editor_absoluteY="819dp" />
 
@@ -27,4 +27,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,8 @@ class ProductActivity : AppCompatActivity() {
                 binding.price.text.clear()
                 binding.productImage.text.clear()
                 binding.category.text.clear()
+                // show success message
+                Snackbar.make(binding.root, "Product added successfully", Snackbar.LENGTH_LONG).show()
             } else {
                 Snackbar.make(it, "Please fill all input", Snackbar.LENGTH_LONG).show()
             }

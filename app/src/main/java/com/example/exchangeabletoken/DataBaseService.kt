@@ -1,5 +1,6 @@
 package com.example.exchangeabletoken
 
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -22,14 +23,18 @@ class DataBaseService {
         }
 
         fun addProduct(name: String, price: Int, image: String, category: String) {
-            // get last id
-            val lastId = Firebase.database.reference.child("products").push().key
-            // add product
-            Firebase.database.reference.child("products").child(lastId!!).child("id").setValue(lastId)
-            Firebase.database.reference.child("products").child(name).child("name").setValue(name)
-            Firebase.database.reference.child("products").child(name).child("price").setValue(price)
-            Firebase.database.reference.child("products").child(name).child("image").setValue(image)
-            Firebase.database.reference.child("products").child(name).child("category").setValue(category)
+            Firebase.database.reference.child("products").child("lastId").get().addOnSuccessListener {
+                // generate random number
+                val id = (0..100000).random()
+                Firebase.database.reference.child("products").child(id.toString()).child("id").setValue(id)
+                Firebase.database.reference.child("products").child(id.toString()).child("name").setValue(name)
+                Firebase.database.reference.child("products").child(id.toString()).child("price").setValue(price)
+                Firebase.database.reference.child("products").child(id.toString()).child("image").setValue(image)
+                Firebase.database.reference.child("products").child(id.toString()).child("category").setValue(category)
+            }
+                .addOnFailureListener {
+                    // Handle any errors
+                }
         }
     }
 }
