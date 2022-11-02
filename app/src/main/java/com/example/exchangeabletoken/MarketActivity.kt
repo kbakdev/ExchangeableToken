@@ -40,6 +40,12 @@ class MarketActivity : AppCompatActivity() {
             val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)
         }
+        // handle search product button
+        val searchProductButton = findViewById<FloatingActionButton>(R.id.search_product_button)
+        searchProductButton.setOnClickListener {
+            val intent = Intent(this, SearchProductActivity::class.java)
+            startActivity(intent)
+        }
     }
     operator fun get(position: Int): CharSequence? {
         return MarketService.getMarketData()[position]

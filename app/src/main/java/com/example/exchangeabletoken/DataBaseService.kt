@@ -36,5 +36,29 @@ class DataBaseService {
                     // Handle any errors
                 }
         }
+
+        fun getProductsByCategory(category: String): List<DataProduct> {
+            val productsByCategory = mutableListOf<DataProduct>()
+            Firebase.database.reference.child("products").get().addOnSuccessListener {
+                val products = it.children
+                products.forEach {
+                    if (it.child("category").value == category) {
+                        val product = DataProduct(
+                            it.child("id").value.toString().toInt(),
+                            it.child("name").value.toString(),
+                            it.child("price").value.toString().toInt(),
+                            it.child("image").value.toString(),
+                            it.child("category").value.toString()
+                        )
+                        println("product: $product")
+                        productsByCategory.add(product)
+                    }
+                }
+            }
+                .addOnFailureListener {
+                    // Handle any errors
+                }
+            return productsByCategory
+            }
+        }
     }
-}
