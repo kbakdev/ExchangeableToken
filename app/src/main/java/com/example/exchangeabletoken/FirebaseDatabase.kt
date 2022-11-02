@@ -4,24 +4,12 @@ class FirebaseDatabase {
     companion object {
         fun getMarketData(): List<DataProduct> {
             return listOf(
-                DataProduct(1, "Product 1", 100, "https://picsum.photos/200/300"),
-                DataProduct(2, "Product 2", 200, "https://picsum.photos/200/300"),
-                DataProduct(3, "Product 3", 300, "https://picsum.photos/200/300"),
-                DataProduct(4, "Product 4", 400, "https://picsum.photos/200/300"),
-                DataProduct(5, "Product 5", 500, "https://picsum.photos/200/300"),
-                DataProduct(6, "Product 6", 600, "https://picsum.photos/200/300"),
-                DataProduct(7, "Product 7", 700, "https://picsum.photos/200/300"),
-                DataProduct(8, "Product 8", 800, "https://picsum.photos/200/300"),
-                DataProduct(9, "Product 9", 900, "https://picsum.photos/200/300"),
-                DataProduct(10, "Product 10", 1000, "https://picsum.photos/200/300"),
-                DataProduct(11, "Product 11", 1100, "https://picsum.photos/200/300"),
-                DataProduct(12, "Product 12", 1200, "https://picsum.photos/200/300"),
-                DataProduct(13, "Product 13", 1300, "https://picsum.photos/200/300"),
-                DataProduct(14, "Product 14", 1400, "https://picsum.photos/200/300"),
-                DataProduct(15, "Product 15", 1500, "https://picsum.photos/200/300"),
-                DataProduct(16, "Product 16", 1600, "https://picsum.photos/200/300"),
-                DataProduct(17, "Product 17", 1700, "https://picsum.photos/200/300"),
-                DataProduct(18, "Product 18", 1800, "https://picsum.photos/200/300"),
+                DataProduct(1, "Apple", 10, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(2, "Orange", 15, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(3, "Banana", 20, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(4, "Pineapple", 25, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(5, "Watermelon", 30, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(6, "Mango", 35, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
             )
         }
     }

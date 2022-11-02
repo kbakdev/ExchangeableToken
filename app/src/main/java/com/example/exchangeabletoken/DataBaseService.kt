@@ -20,5 +20,16 @@ class DataBaseService {
                 Firebase.database.reference.child("products").child(it.id.toString()).setValue(it)
             }
         }
+
+        fun addProduct(name: String, price: Int, image: String, category: String) {
+            // get last id
+            val lastId = Firebase.database.reference.child("products").push().key
+            // add product
+            Firebase.database.reference.child("products").child(lastId!!).child("id").setValue(lastId)
+            Firebase.database.reference.child("products").child(name).child("name").setValue(name)
+            Firebase.database.reference.child("products").child(name).child("price").setValue(price)
+            Firebase.database.reference.child("products").child(name).child("image").setValue(image)
+            Firebase.database.reference.child("products").child(name).child("category").setValue(category)
+        }
     }
 }
