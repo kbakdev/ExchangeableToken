@@ -7,6 +7,10 @@
         <item name="android:textColorHint">@color/colorText</item>
         <item name="colorControlNormal">@color/colorText</item>
         <item name="colorControlActivated">@color/colorText</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
     </style>
 
     <style name="ClassyButton">
@@ -19,5 +23,15 @@
         <item name="android:textColorHighlight">#D41E1E</item>
         <item name="android:textColorHint">#FF0909</item>
         <item name="android:textColorLink">#C62323</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+    <style name="floating_action_button">
+        <item name="android:layout_margin">16dp</item>
+    </style>
+    <style name="floating_action_button_add_product">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_marginBottom">96dp</item>
     </style>
 </resources>
