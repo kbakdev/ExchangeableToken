@@ -106,6 +106,14 @@
             android:clickable="true"
             app:srcCompat="@drawable/ic_baseline_search_24" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/transactions_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/icons8_dollar_euro_exchange_120___" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
