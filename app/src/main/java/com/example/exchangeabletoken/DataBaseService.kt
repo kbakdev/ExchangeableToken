@@ -22,16 +22,28 @@ class DataBaseService {
             }
         }
 
-        fun addProduct(name: String, price: Int, image: String, category: String) {
-            Firebase.database.reference.child("products").child("lastId").get().addOnSuccessListener {
-                // generate random number
-                val id = (0..100000).random()
-                Firebase.database.reference.child("products").child(id.toString()).child("id").setValue(id)
-                Firebase.database.reference.child("products").child(id.toString()).child("name").setValue(name)
-                Firebase.database.reference.child("products").child(id.toString()).child("price").setValue(price)
-                Firebase.database.reference.child("products").child(id.toString()).child("image").setValue(image)
-                Firebase.database.reference.child("products").child(id.toString()).child("category").setValue(category)
+        fun mockMarketData() {
+            FirebaseDatabase.getMarketData().forEach {
+                Firebase.database.reference.child("products").child(it.id.toString()).setValue(it)
             }
+        }
+
+        fun addProduct(name: String, price: Int, image: String, category: String) {
+            Firebase.database.reference.child("products").child("lastId").get()
+                .addOnSuccessListener {
+                    // generate random number
+                    val id = (0..100000).random()
+                    Firebase.database.reference.child("products").child(id.toString()).child("id")
+                        .setValue(id)
+                    Firebase.database.reference.child("products").child(id.toString()).child("name")
+                        .setValue(name)
+                    Firebase.database.reference.child("products").child(id.toString())
+                        .child("price").setValue(price)
+                    Firebase.database.reference.child("products").child(id.toString())
+                        .child("image").setValue(image)
+                    Firebase.database.reference.child("products").child(id.toString())
+                        .child("category").setValue(category)
+                }
                 .addOnFailureListener {
                     // Handle any errors
                 }
@@ -59,6 +71,6 @@ class DataBaseService {
                     // Handle any errors
                 }
             return productsByCategory
-            }
         }
     }
+}
