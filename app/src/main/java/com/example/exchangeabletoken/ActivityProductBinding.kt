@@ -90,7 +90,7 @@ companion object {
                 DataProduct(85, "Lambkin", 425, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Lambkin"),
                 DataProduct(86, "Rabbit", 430, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Rabbit"),
                 DataProduct(87, "Piglet", 435, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Piglet"),
-            )
+                DataProduct(89, "Buff Doge", 440, "https://www.pngitem.com/pimgs/m/202-2028426_buff-doge-hd-png-download.png", "Buff Doge"),)
         }
     }
 }
