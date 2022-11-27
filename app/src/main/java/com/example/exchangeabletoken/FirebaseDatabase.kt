@@ -29,7 +29,7 @@ class FirebaseDatabase {
                 val index = random.nextInt(characters.size)
                 randomName.append(characters[index])
             }
-            return randomName.toString()
+            return randomName.toString().lowercase()
         }
 
         private fun generateRandomPrice(): Int {
@@ -45,7 +45,7 @@ class FirebaseDatabase {
                 val index = random.nextInt(characters.size)
                 randomUrl.append(characters[index])
             }
-            return "https://picsum.photos/200/300?random=$randomUrl"
+            return "https://picsum.photos/200/300?random=$randomUrl".lowercase()
         }
     }
 }
