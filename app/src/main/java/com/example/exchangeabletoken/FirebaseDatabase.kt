@@ -1,16 +1,51 @@
 package com.example.exchangeabletoken
 
+import android.text.method.DialerKeyListener.CHARACTERS
+import java.util.*
+
 class FirebaseDatabase {
     companion object {
         fun getMarketData(): List<DataProduct> {
             return listOf(
-                DataProduct(1, "Apple", 10, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
-                DataProduct(2, "Orange", 15, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
-                DataProduct(3, "Banana", 20, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
-                DataProduct(4, "Pineapple", 25, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
-                DataProduct(5, "Watermelon", 30, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
-                DataProduct(6, "Mango", 35, "https://www.pngitem.com/pimgs/m/30-307416_transparent-apple-png-apple-fruit-png-download.png", "Fruit"),
+                DataProduct(
+                    generateRandomId(),
+                    generateRandomString(),
+                    generateRandomPrice(),
+                    generateRandomUrlWithImage(),
+                    generateRandomString()
+                ),
             )
+        }
+
+        private fun generateRandomId(): Int {
+            return (0..100000).random()
+        }
+
+        private fun generateRandomString(): String {
+            val randomName = StringBuilder()
+            val characters = CHARACTERS
+            val random = Random()
+            while (randomName.length < 2) {
+                val index = random.nextInt(characters.size)
+                randomName.append(characters[index])
+            }
+            return randomName.toString().lowercase()
+        }
+
+        private fun generateRandomPrice(): Int {
+            val random = Random()
+            return random.nextInt(100)
+        }
+
+        private fun generateRandomUrlWithImage(): String {
+            val random = Random()
+            val randomUrl = StringBuilder()
+            val characters = CHARACTERS
+            while (randomUrl.length < 10) {
+                val index = random.nextInt(characters.size)
+                randomUrl.append(characters[index])
+            }
+            return "https://picsum.photos/200/300?random=$randomUrl".lowercase()
         }
     }
 }

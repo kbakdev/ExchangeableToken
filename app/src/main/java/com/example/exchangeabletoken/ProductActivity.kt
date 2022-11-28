@@ -30,6 +30,10 @@ class ProductActivity : AppCompatActivity() {
             DataBaseService.createProduct()
         }
 
+        binding.mockMarketDataButton.setOnClickListener {
+            DataBaseService.mockMarketData()
+        }
+
         // add product handle button
         binding.addProduct.setOnClickListener {
             // validate input
