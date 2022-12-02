@@ -30,7 +30,7 @@ class TransactionActivity : AppCompatActivity() {
         val fab: FloatingActionButton = binding.fab
 
         // change scene to AddTransactionActivity
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             val intent = Intent(this, AddTransactionActivity::class.java)
             startActivity(intent)
         }
