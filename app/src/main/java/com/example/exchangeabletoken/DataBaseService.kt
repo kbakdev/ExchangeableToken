@@ -15,6 +15,14 @@ class DataBaseService {
         myRef.child(name).child("address").setValue(address.lowercase())
     }
 
+    fun addTransaction(uid: String, name: String, amount: String, type: String, date: String) {
+        val database = Firebase.database
+        val myRef = database.getReference("transactions")
+        myRef.child(uid).child(name).child("amount").setValue(amount)
+        myRef.child(uid).child(name).child("type").setValue(type)
+        myRef.child(uid).child(name).child("date").setValue(date)
+    }
+
     companion object {
         fun createProduct() {
             FirebaseDatabase.getMarketData().forEach {
@@ -71,6 +79,25 @@ class DataBaseService {
                     // Handle any errors
                 }
             return productsByCategory
+        }
+
+        fun addTransaction(id: Int, name: String, price: Int, image: String, category: String) {
+            Firebase.database.reference.child("transactions").child("lastId").get()
+                .addOnSuccessListener {
+                    Firebase.database.reference.child("transactions").child(id.toString())
+                        .child("id").setValue(id)
+                    Firebase.database.reference.child("transactions").child(id.toString())
+                        .child("name").setValue("name")
+                    Firebase.database.reference.child("transactions").child(id.toString())
+                        .child("price").setValue("price")
+                    Firebase.database.reference.child("transactions").child(id.toString())
+                        .child("image").setValue("image")
+                    Firebase.database.reference.child("transactions").child(id.toString())
+                        .child("category").setValue("category")
+                }
+                .addOnFailureListener {
+                    // Handle any errors
+                }
         }
     }
 }

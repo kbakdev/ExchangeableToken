@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.ExchangeableToken" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
@@ -10,7 +10,7 @@
         <!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
         <!--        <item name="colorOnSecondary">@color/black</item>-->
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,4 +22,48 @@
     <style name="Theme.ExchangeableToken.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ExchangeableToken.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialog" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.FullScreen" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.FullScreen.Dark" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.FullScreen.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.Dark" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.TranslucentStatus" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.TranslucentStatus.Dark" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.TranslucentStatus.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.ExchangeableToken.BottomSheetDialogFragment.TranslucentStatus.Dark.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>
