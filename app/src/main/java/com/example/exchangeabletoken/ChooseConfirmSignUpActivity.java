@@ -1,2 +1,6 @@
-package com.example.exchangeabletoken;public class ChooseConfirmSignUpActivity {
+package com.example.exchangeabletoken;
+
+import android.app.Activity;
+
+public class ChooseConfirmSignUpActivity extends Activity {
 }

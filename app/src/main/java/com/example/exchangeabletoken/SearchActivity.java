@@ -1,2 +1,6 @@
-package com.example.exchangeabletoken;public class SearchActivity {
+package com.example.exchangeabletoken;
+
+import android.app.Activity;
+
+public class SearchActivity extends Activity {
 }

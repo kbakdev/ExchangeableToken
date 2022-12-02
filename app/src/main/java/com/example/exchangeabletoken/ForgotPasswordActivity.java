@@ -1,2 +1,6 @@
-package com.example.exchangeabletoken;public class ForgotPasswordActivity {
+package com.example.exchangeabletoken;
+
+import android.app.Activity;
+
+public class ForgotPasswordActivity extends Activity {
 }

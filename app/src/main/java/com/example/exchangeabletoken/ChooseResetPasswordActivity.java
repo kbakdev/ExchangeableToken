@@ -1,2 +1,6 @@
-package com.example.exchangeabletoken;public class ChooseResetPasswordActivity {
+package com.example.exchangeabletoken;
+
+import android.app.Activity;
+
+public class ChooseResetPasswordActivity extends Activity {
 }
