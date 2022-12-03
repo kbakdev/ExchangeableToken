@@ -78,6 +78,10 @@ class SettingsActivity : AppCompatActivity(),
                 it
             ).apply {
                 arguments = args
+<<<<<<< HEAD
+=======
+                setTargetFragment(caller, 0)
+>>>>>>> 48526d3 (feat: bump up build versions)
             }
         }
         // Replace the existing Fragment with the new Fragment
