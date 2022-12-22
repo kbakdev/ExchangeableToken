@@ -39,6 +39,7 @@ class SearchProductActivity : AppCompatActivity() {
             }
         }
     }
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val intent = Intent(this, MarketActivity::class.java)
         startActivity(intent)
