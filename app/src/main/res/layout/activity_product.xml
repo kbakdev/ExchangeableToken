@@ -25,6 +25,12 @@
             android:background="#FFFFFF"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPLOAD IMAGE" />
+
             <EditText
                 android:id="@+id/category"
                 android:layout_width="wrap_content"
@@ -39,22 +45,6 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="333dp" />
 
-            <EditText
-                android:id="@+id/product_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:fontFamily="sans-serif-smallcaps"
-                android:hint="Link to image"
-                android:inputType="textPersonName"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
-                app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_content_product"
-                app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment_content_product"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.784" />
 
             <TextView
                 android:id="@+id/text_price"
