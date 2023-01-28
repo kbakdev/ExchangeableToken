@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 class WalletStatusActivity : AppCompatActivity() {
@@ -13,26 +15,25 @@ class WalletStatusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wallet_status)
         val user = FirebaseAuth.getInstance().currentUser
-        val storage = FirebaseStorage.getInstance()
-        val storageRef = storage.reference
-        var walletName: String = ""
-        var walletAddress: String = ""
-        var walletBalance: String = ""
+
+        // use realtime database to get user's balance
+        val balance = findViewById<TextView>(R.id.balance)
+        // get user's balance from Firebase realtime database
+        val database = Firebase.database
+        val myRef = database.getReference("users")
+        myRef.child(user?.uid.toString()).child("balance").get()
+            .addOnSuccessListener {
+                balance.text = "Balance: ${it.value}"
+            }
+            .addOnFailureListener {
+                balance.text = "Balance: 0"
+            }
+
+
         val output = findViewById<TextView>(R.id.output)
-        val walletRef = storageRef.child("wallets/${user?.uid}/name")
-        walletRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { bytes ->
-            walletName = String(bytes)
-            val walletRef = storageRef.child("wallets/${user?.uid}/address")
-            walletRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { bytes ->
-                walletAddress = String(bytes)
-                val walletRef = storageRef.child("wallets/${user?.uid}/balance")
-                walletRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { bytes ->
-                    walletBalance = String(bytes)
-                    output.text =
-                        "Wallet Name: $walletName Wallet Address: $walletAddress Wallet Balance: $walletBalance"
-                }.addOnFailureListener {
-                    // Handle any errors
-                }
-                }
-    }}
+        // get user's output from database
+        FirebaseStorage.getInstance().reference.child("users/${user?.uid}/output").downloadUrl.addOnSuccessListener {
+            output.text = "Output: $it"
+        }
+    }
 }
