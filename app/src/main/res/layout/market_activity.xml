@@ -28,13 +28,13 @@
             android:layout_gravity="start"
             android:layout_marginBottom="1dp"
             android:text="@string/logout"
-            app:layout_constraintBottom_toTopOf="@+id/walletButton"
+            app:layout_constraintBottom_toTopOf="@+id/wallet_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/walletButton"
+            android:id="@+id/wallet_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -83,7 +83,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/current_balance"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:fontFamily="sans-serif-light"

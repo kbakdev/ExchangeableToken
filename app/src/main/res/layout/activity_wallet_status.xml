@@ -18,6 +18,16 @@
         android:layout_centerVertical="true"
         />
 
+<!--    balance -->
+    <TextView
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wallet_status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
 
 
 

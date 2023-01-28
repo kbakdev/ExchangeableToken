@@ -7,6 +7,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
     // declare firebase
@@ -55,6 +57,14 @@ class SignUpActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
+                            // save data to realtime database
+                            val database = Firebase.database
+                            val myRef = database.getReference("users")
+                            myRef.child(auth.currentUser?.uid.toString()).child("name").setValue(name.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("phone").setValue(phone.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("address").setValue(address.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("balance").setValue(0)
+
                             // Sign in success, update UI with the signed-in user's information
                             val user = auth.currentUser
                             val db = DataBaseService()
