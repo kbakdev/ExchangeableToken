@@ -23,7 +23,7 @@ class MarketActivity : AppCompatActivity() {
         if (Firebase.auth.currentUser != null) {
             val currentUser = Firebase.auth.currentUser
             val currentUserName = findViewById<TextView>(R.id.current_user_name)
-            currentUserName.text = "Hello, " + currentUser?.email + "!"
+            "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
         }
 
 //         Handle log out button
