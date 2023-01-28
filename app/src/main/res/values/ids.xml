@@ -8,4 +8,5 @@
     <item name="textInputLayoutPassword" type="id" />
     <item name="textInputEditTextEmail" type="id" />
     <item name="textInputEditTextPassword" type="id" />
+    <item name="output" type="id" />
 </resources>
