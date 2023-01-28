@@ -1,6 +1,5 @@
 package com.example.exchangeabletoken
 
-import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.os.Handler
 import android.os.Looper
