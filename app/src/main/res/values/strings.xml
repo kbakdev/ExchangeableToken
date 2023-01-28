@@ -250,4 +250,8 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="todo">TODO</string>
+    <string name="wallet_currency">Wallet Currency</string>
+    <string name="wallet_balance">Wallet Balance</string>
+    <string name="wallet_name">Wallet Name</string>
+    <string name="wallet_status">Wallet Status</string>
 </resources>

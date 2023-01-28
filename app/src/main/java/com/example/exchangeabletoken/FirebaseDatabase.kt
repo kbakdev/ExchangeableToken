@@ -47,5 +47,6 @@ class FirebaseDatabase {
             val height = random.nextInt(1000)
             return Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         }
+
     }
 }

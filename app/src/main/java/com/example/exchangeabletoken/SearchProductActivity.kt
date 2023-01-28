@@ -35,7 +35,6 @@ class SearchProductActivity : AppCompatActivity() {
                 recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
                 // show data in recyclerview
                 recyclerView.adapter = ProductAdapter(DataBaseService.getProductsByCategory(phraseText))
-
             }
         }
     }
