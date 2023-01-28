@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class MarketActivity : AppCompatActivity() {
     val size: Int = 0
@@ -26,13 +25,20 @@ class MarketActivity : AppCompatActivity() {
             "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
         }
 
+        // set current balance for UI element with id "current_balance" if user is logged in
+        if (Firebase.auth.currentUser != null) {
+            val currentUser = Firebase.auth.currentUser
+            val currentBalance = findViewById<TextView>(R.id.current_balance)
+
+        }
+
 //         Handle log out button
         val logoutButton = findViewById<Button>(R.id.logoutButton)
         logoutButton.setOnClickListener {
             Firebase.auth.signOut()
             finish()
         }
-        val walletButton = findViewById<FloatingActionButton>(R.id.walletButton)
+        val walletButton = findViewById<FloatingActionButton>(R.id.wallet_button)
         walletButton.setOnClickListener {
             val intent = Intent(this, WalletStatusActivity::class.java)
             startActivity(intent)
