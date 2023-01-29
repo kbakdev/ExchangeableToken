@@ -7,7 +7,6 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.exchangeabletoken.databinding.ActivityAddTransactionBinding
 
 class AddTransactionActivity : AppCompatActivity() {
