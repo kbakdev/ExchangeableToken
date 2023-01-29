@@ -2,6 +2,7 @@ package com.example.exchangeabletoken
 
 import android.graphics.Bitmap
 import android.util.Log
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.io.ByteArrayOutputStream
@@ -56,7 +57,7 @@ class DataBaseService {
 
 
         fun addProduct(name: String, price: Int, image: Bitmap, category: String) {
-            Firebase.database.reference.child("products").child("lastId").get()
+            Firebase.database.reference.child("products").child("lastId").get().addOnSuccessListener {
                 .addOnSuccessListener {
                     // generate random number
                     val id = (0..100000).random()
@@ -105,4 +106,10 @@ class DataBaseService {
             return products
         }
     }
+}
+
+private fun DatabaseReference.get(): Any {
+    TODO("Not yet implemented")
+}
+
 }
