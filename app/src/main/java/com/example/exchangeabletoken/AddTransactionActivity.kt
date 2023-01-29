@@ -36,6 +36,7 @@ class AddTransactionActivity : AppCompatActivity() {
             finish()
         }
 
+<<<<<<< HEAD
         // do transaction and store it in realtime database
         binding.fab.setOnClickListener { view ->
             doTransaction(view)
@@ -137,6 +138,11 @@ class AddTransactionActivity : AppCompatActivity() {
             } else {
                 Snackbar.make(view, "User doesn't exist", Snackbar.LENGTH_SHORT).show()
             }
+=======
+        // do transaction
+        binding.fab.setOnClickListener {
+            finish()
+>>>>>>> 47c1ddf (fix: CI workflow)
         }
     }
 
