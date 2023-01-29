@@ -24,9 +24,10 @@ class AddTransactionActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_add_transaction)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        // change scene to TransactionActivity
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         binding.fab.setOnClickListener {
             Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_LONG)
