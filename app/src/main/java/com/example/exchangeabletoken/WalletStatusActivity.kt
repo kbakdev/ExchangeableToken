@@ -28,8 +28,6 @@ class WalletStatusActivity : AppCompatActivity() {
             .addOnFailureListener {
                 balance.text = "Balance: 0"
             }
-
-
         val output = findViewById<TextView>(R.id.output)
         // get user's output from database
         FirebaseStorage.getInstance().reference.child("users/${user?.uid}/output").downloadUrl.addOnSuccessListener {
