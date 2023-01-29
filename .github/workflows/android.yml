@@ -24,11 +24,13 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Build APK
+      run: ./gradlew assembleDebug
     - name: Upload to GitHub Releases
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: app/build/outputs/bundle/internalRelease/app-internal-release.aab
+        file: app/build/outputs/apk/release/app-release-unsigned.apk
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
