@@ -116,19 +116,16 @@
             android:id="@+id/transactions_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="src_atop"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_receipt_long_24"
-            android:contentDescription="@string/transactions"
-            tools:ignore="ImageContrastCheck" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/scan_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_qr_code_scanner_24"
-            android:contentDescription="@string/scan"
-            tools:ignore="ImageContrastCheck" />
+            android:foregroundTint="#000000"
+            android:foregroundTintMode="src_atop"
+            android:tintMode="src_atop"
+            app:srcCompat="@android:drawable/ic_menu_always_landscape_portrait"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="@string/transactions" />
 
     </LinearLayout>
 

@@ -24,32 +24,21 @@ class MarketActivity : AppCompatActivity() {
             val currentUser = Firebase.auth.currentUser
             val currentUserName = findViewById<TextView>(R.id.current_user_name)
             "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
-        }
 
-        // set current balance for UI element with id "current_balance" if user is logged in
-        if (Firebase.auth.currentUser != null) {
-            val currentUser = Firebase.auth.currentUser
-            val currentBalance = findViewById<TextView>(R.id.user_info)
+            // get user's information from Firebase realtime database
             val database = Firebase.database
-            val myRef = database.getReference("users/${currentUser?.uid}")
-
-            // get address, email, name, phone, uid, and balance from realtime database of current user
-            val address = findViewById<TextView>(R.id.address)
-            val email = findViewById<TextView>(R.id.email)
-            val name = findViewById<TextView>(R.id.name)
-            val phone = findViewById<TextView>(R.id.phone)
-            val uid = findViewById<TextView>(R.id.uid)
-            val balance = findViewById<TextView>(R.id.balance)
-
-            // set address, email, name, phone, uid, and balance for UI elements with id "address", "email", "name", "phone", "uid", and "balance" if user is logged in
-            myRef.get().addOnSuccessListener {
-                address.text = it.child("address").value.toString()
-                email.text = it.child("email").value.toString()
-                name.text = it.child("name").value.toString()
-                phone.text = it.child("phone").value.toString()
-                uid.text = it.child("uid").value.toString()
-                balance.text = it.child("balance").value.toString()
-            }
+            val myRef = database.getReference("users")
+            // show data at user_info element
+            val userInfo = findViewById<TextView>(R.id.user_info)
+            myRef.child(currentUser?.uid.toString()).get()
+                .addOnSuccessListener {
+                    // beautify data
+                    val data = it.value.toString().replace("{", "").replace("}", "")
+                    userInfo.text = data
+                }
+                .addOnFailureListener {
+                    "User not found".also { userInfo.text = it }
+                }
         }
 
 //         Handle log out button
