@@ -28,9 +28,9 @@ class AddTransactionActivity : AppCompatActivity() {
             finish()
         }
 
+        // do transaction
         binding.fab.setOnClickListener {
-            Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            finish()
         }
     }
 
