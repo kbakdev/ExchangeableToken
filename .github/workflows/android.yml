@@ -5,6 +5,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    tags: [ "v1.*" ]
 
 jobs:
   build:
@@ -22,10 +23,8 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
+    - name: Gradle build
       run: ./gradlew build
-    - name: Build APK
-      run: ./gradlew assembleDebug
     - name: Upload to GitHub Releases
       uses: svenstaro/upload-release-action@v2
       with:
