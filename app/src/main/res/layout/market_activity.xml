@@ -53,7 +53,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_settings_24" />
+            app:srcCompat="@drawable/ic_baseline_settings_24"
+            android:contentDescription="@string/settings"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
@@ -83,12 +85,12 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/current_balance"
+            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
-            android:text="@string/text_hello2"
+            android:text="@string/text_user_info"
             android:textColor="#000000" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -97,22 +99,33 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24" />
+            app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24"
+            android:contentDescription="@string/product"
+            tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/search_product_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_search_24" />
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            android:contentDescription="@string/search_product"
+            tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/transactions_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="src_atop"
             android:clickable="true"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/icons8_dollar_euro_exchange_120___" />
+            android:foregroundTint="#000000"
+            android:foregroundTintMode="src_atop"
+            android:tintMode="src_atop"
+            app:srcCompat="@android:drawable/ic_menu_always_landscape_portrait"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="@string/transactions" />
 
     </LinearLayout>
 
