@@ -53,7 +53,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_settings_24" />
+            app:srcCompat="@drawable/ic_baseline_settings_24"
+            android:contentDescription="@string/settings"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
@@ -97,22 +99,36 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24" />
+            app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24"
+            android:contentDescription="@string/product"
+            tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/search_product_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_search_24" />
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            android:contentDescription="@string/search_product"
+            tools:ignore="ImageContrastCheck" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/transactions_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/icons8_dollar_euro_exchange_120___" />
+            app:srcCompat="@drawable/ic_baseline_receipt_long_24"
+            android:contentDescription="@string/transactions"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/scan_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_baseline_qr_code_scanner_24"
+            android:contentDescription="@string/scan"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 

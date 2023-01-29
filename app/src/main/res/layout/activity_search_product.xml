@@ -21,8 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="category"
-            android:inputType="textPersonName" />
+            android:hint="@string/search_product_by_category"
+            android:inputType="textPersonName"
+            android:autofillHints="" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
@@ -37,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_search_24" />
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            android:contentDescription="@string/search_product" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_recycler_view"
@@ -45,6 +47,5 @@
             android:layout_height="match_parent"
             tools:itemCount="5"
             tools:listitem="@layout/product_item" />
-        />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
