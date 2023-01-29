@@ -9,4 +9,8 @@
     <item name="textInputEditTextEmail" type="id" />
     <item name="textInputEditTextPassword" type="id" />
     <item name="output" type="id" />
+    <item name="button" type="id" />
+    <item name="nav_host_fragment_content_add_transaction" type="id" />
+    <item name="address" type="id">Address</item>
+    <item name="uid" type="id" />
 </resources>

@@ -83,12 +83,12 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/current_balance"
+            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
-            android:text="@string/text_hello2"
+            android:text="@string/text_user_info"
             android:textColor="#000000" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -78,7 +78,6 @@ class SettingsActivity : AppCompatActivity(),
                 it
             ).apply {
                 arguments = args
-                setTargetFragment(caller, 0)
             }
         }
         // Replace the existing Fragment with the new Fragment

@@ -21,10 +21,10 @@ class ProductAdapter(private val productsByCategory: List<DataProduct>) : Recycl
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(dataProduct: DataProduct) {
-            val textView: TextView = itemView.findViewById(R.id.textView)
+            val textView: TextView = itemView.findViewById(R.id.do_transaction)
             textView.text = dataProduct.name
         }
 
-        val textView: TextView = itemView.findViewById(R.id.textView)
+        val textView: TextView = itemView.findViewById(R.id.do_transaction)
     }
 }
