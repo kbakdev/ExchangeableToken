@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">ExchangeableToken</string>
-    <string name="welcome_message">Welcome to \n Exchangeable \n Token!</string>
-    <string name="button_text">NEXT</string>
-    <string name="login_failed" />
-    <string name="login_success_message" />
-    <string name="initial_title" />
-    <string name="logged_in_title" />
+    <string name="app_name" translatable="false">ExchangeableToken</string>
+    <string name="welcome_message" translatable="false">Welcome to \n Exchangeable \n Token!</string>
+    <string name="button_text" translatable="false">NEXT</string>
+    <string name="login_failed" translatable="false" />
+    <string name="login_success_message" translatable="false" />
+    <string name="initial_title" translatable="false" />
+    <string name="logged_in_title" translatable="false" />
     <string name="logged_out_title" />
     <string name="user_profile_message" />
     <string name="log_in">log in</string>
@@ -254,4 +254,38 @@
     <string name="wallet_balance">Wallet Balance</string>
     <string name="wallet_name">Wallet Name</string>
     <string name="wallet_status">Wallet Status</string>
+    <string name="name">Name</string>
+    <string name="textview">TextView</string>
+    <string name="amount">Amount</string>
+    <string name="button">Button</string>
+    <string name="do_transaction">Do transaction</string>
+    <string name="receiver">Receiver</string>
+    <string name="sender">Sender</string>
+    <string name="description">Description</string>
+    <string name="text_user_info">User Info</string>
+    <string name="scan">scan</string>
+    <string name="transactions">transactions</string>
+    <string name="search_product">search_product</string>
+    <string name="product">product</string>
+    <string name="settings">settings</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="choose_sign_up">Choose Sign Up</string>
+    <string name="please_log_in_to_use_application">Please log in to use application</string>
+    <string name="upload_image">UPLOAD IMAGE</string>
+    <string name="product_category">Product category</string>
+    <string name="product_price">Product price</string>
+    <string name="price">Price</string>
+    <string name="product_name">Product name</string>
+    <string name="fab_content_description">Fab Content Description</string>
+    <string name="search_product_by_category">Search Product By Category</string>
+    <string name="welcome_to_this_application">Welcome to this application.</string>
+    <string name="this_app_is_designed_to_make_it_easier_for_users_to_exchange_nfts">This app is designed to make it easier for users to exchange NFTs.</string>
+    <string name="the_app_has_been_designed_from_scratch_by_kacper_b_k">The app has been designed from scratch by Kacper Bąk.</string>
+    <string name="this_app_was_developed_as_part_of_an_engineering_thesis_for_wsb_academy">This app was developed as part of an engineering thesis for WSB Academy.</string>
+    <string name="proceed">Proceed</string>
+    <string name="phone">Phone</string>
+    <string name="postal_address">Postal Address</string>
+    <string name="great_you_registered">Great, you registered!</string>
+    <string name="go_to_log_in">Go to Log In</string>
+    <string name="item">Item</string>
 </resources>

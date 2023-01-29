@@ -29,7 +29,7 @@
                 android:id="@+id/productImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UPLOAD IMAGE" />
+                android:text="@string/upload_image" />
 
             <EditText
                 android:id="@+id/category"
@@ -38,7 +38,7 @@
                 android:autofillHints="Product category"
                 android:ems="10"
                 android:fontFamily="sans-serif-smallcaps"
-                android:hint="Product category"
+                android:hint="@string/product_category"
                 android:inputType="textPersonName"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="379dp"
-                android:text="Price"
+                android:text="@string/price"
                 app:layout_constraintBottom_toTopOf="@+id/price"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -74,7 +74,13 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.55" />
+                app:layout_constraintVertical_bias="0.55"
+                android:autofillHints="Product price"
+                android:fontFamily="sans-serif-smallcaps"
+                android:hint="@string/product_price"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="333dp" />
+
 
             <EditText
                 android:id="@+id/product_name"
@@ -82,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="sans-serif-smallcaps"
-                android:hint="Product name"
+                android:hint="@string/product_name"
                 android:inputType="textPersonName"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
@@ -91,7 +97,11 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.245" />
+                app:layout_constraintVertical_bias="0.245"
+                android:autofillHints="Product name"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="333dp" />
+
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -105,7 +115,10 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:contentDescription="@string/fab_content_description"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         app:useCompatPadding="true"
@@ -115,7 +128,9 @@
         android:clickable="true"
         android:longClickable="true"
         android:layout_gravity="bottom|start"
-        app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24" />
+        app:srcCompat="@drawable/ic_baseline_production_quantity_limits_24"
+        android:contentDescription="@string/fab_content_description"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         app:useCompatPadding="true"
@@ -125,7 +140,6 @@
         android:clickable="true"
         android:padding="10dp"
         android:paddingStart="10dp"
-        android:paddingLeft="0dp"
         android:paddingTop="10dp"
         android:paddingEnd="10dp"
         android:rotationX="-24"
@@ -134,6 +148,9 @@
         android:scaleY="1.5"
         android:translationX="10dp"
         android:translationY="10dp"
-        app:srcCompat="@drawable/ic_baseline_emoji_objects_24" />
+        app:srcCompat="@drawable/ic_baseline_emoji_objects_24"
+        android:contentDescription="@string/fab_content_description"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

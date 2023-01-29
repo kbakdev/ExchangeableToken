@@ -60,25 +60,18 @@ class SignUpActivity : AppCompatActivity() {
                             // save data to realtime database
                             val database = Firebase.database
                             val myRef = database.getReference("users")
-                            myRef.child(auth.currentUser?.uid.toString()).child("name").setValue(name.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("phone").setValue(phone.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("address").setValue(address.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("balance").setValue(0)
-
-                            // Sign in success, update UI with the signed-in user's information
                             val user = auth.currentUser
-                            val db = DataBaseService()
-                            db.addUser(user!!.uid, name.text.toString(), email.text.toString(), phone.text.toString(), address.text.toString())
+                            myRef.child(user?.uid.toString()).child("name").setValue(name.text.toString())
+                            myRef.child(user?.uid.toString()).child("phone").setValue(phone.text.toString())
+                            myRef.child(user?.uid.toString()).child("address").setValue(address.text.toString())
+                            myRef.child(user?.uid.toString()).child("balance").setValue(0)
+                            // show that sign up is successful
+                            Snackbar.make(it, "Sign up successful", Snackbar.LENGTH_SHORT).show()
+                            // go to market activity
                             val intent = Intent(this, MarketActivity::class.java)
                             startActivity(intent)
-                            finish()
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Snackbar.make(
-                                findViewById(android.R.id.content),
-                                "Authentication Failed.",
-                                Snackbar.LENGTH_SHORT
-                            ).show()
+                            Snackbar.make(it, "Sign up failed", Snackbar.LENGTH_SHORT).show()
                         }
                     }
             } else {

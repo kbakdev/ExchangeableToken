@@ -104,24 +104,5 @@ class DataBaseService {
                 }
             return products
         }
-
-        fun addTransaction(id: Int, name: String, price: Int, image: String, category: String) {
-            Firebase.database.reference.child("transactions").child("lastId").get()
-                .addOnSuccessListener {
-                    Firebase.database.reference.child("transactions").child(id.toString())
-                        .child("id").setValue(id)
-                    Firebase.database.reference.child("transactions").child(id.toString())
-                        .child("name").setValue("name")
-                    Firebase.database.reference.child("transactions").child(id.toString())
-                        .child("price").setValue("price")
-                    Firebase.database.reference.child("transactions").child(id.toString())
-                        .child("image").setValue("image")
-                    Firebase.database.reference.child("transactions").child(id.toString())
-                        .child("category").setValue("category")
-                }
-                .addOnFailureListener {
-                    // Handle any errors
-                }
-        }
     }
 }

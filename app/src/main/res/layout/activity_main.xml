@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/do_transaction"
         android:layout_width="409dp"
         android:layout_height="145dp"
         android:background="#FFFFFF"
@@ -31,7 +31,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/do_transaction"
         app:rippleColor="#FF0000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

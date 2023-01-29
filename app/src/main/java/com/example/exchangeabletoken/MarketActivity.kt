@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class MarketActivity : AppCompatActivity() {
@@ -23,13 +24,21 @@ class MarketActivity : AppCompatActivity() {
             val currentUser = Firebase.auth.currentUser
             val currentUserName = findViewById<TextView>(R.id.current_user_name)
             "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
-        }
 
-        // set current balance for UI element with id "current_balance" if user is logged in
-        if (Firebase.auth.currentUser != null) {
-            val currentUser = Firebase.auth.currentUser
-            val currentBalance = findViewById<TextView>(R.id.current_balance)
-
+            // get user's information from Firebase realtime database
+            val database = Firebase.database
+            val myRef = database.getReference("users")
+            // show data at user_info element
+            val userInfo = findViewById<TextView>(R.id.user_info)
+            myRef.child(currentUser?.uid.toString()).get()
+                .addOnSuccessListener {
+                    // beautify data
+                    val data = it.value.toString().replace("{", "").replace("}", "")
+                    userInfo.text = data
+                }
+                .addOnFailureListener {
+                    "User not found".also { userInfo.text = it }
+                }
         }
 
 //         Handle log out button
