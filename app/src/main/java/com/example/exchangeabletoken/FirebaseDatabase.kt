@@ -4,40 +4,13 @@ import android.graphics.Bitmap
 import android.text.method.DialerKeyListener.CHARACTERS
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks.forException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import java.util.*
 
 class FirebaseDatabase {
-    fun addTransaction(transaction: Transaction) {
-
-        // check if transaction is valid
-        if (transaction.amount == null || transaction.receiver == null || transaction.sender == null || transaction.description == null) {
-            return
-        }
-
-        // check if user that sends the transaction exists
-        val sender = getUser(transaction.sender!!)
-
-        // check if user that receives the transaction exists
-        val receiver = getUser(transaction.receiver!!)
-
-        // check if sender has enough money
-        if (sender.balance < transaction.amount!!.toInt()) {
-            return
-        }
-
-        val database = com.google.firebase.database.FirebaseDatabase.getInstance()
-        val myRef = database.getReference("transactions")
-        val id = UUID.randomUUID().toString()
-        myRef.child(id).setValue(transaction)
-    }
-
-    private fun getUser(sender: String): Balance {
-        val database = com.google.firebase.database.FirebaseDatabase.getInstance()
-        val myRef = database.getReference("users")
-        val user = myRef.child(sender).get()
-        return user.result.getValue(Balance::class.java)!!
-    }
-
     companion object {
         fun getMarketData(): List<DataProduct> {
             return listOf(
@@ -84,9 +57,53 @@ class FirebaseDatabase {
             val database = com.google.firebase.database.FirebaseDatabase.getInstance()
             val myRef = database.getReference("transactions")
             val id = UUID.randomUUID().toString()
-            myRef.child(id).setValue(transaction)
-            return forException(Exception("Not implemented"))
+
+            // set sender as current logged user
+            transaction.sender = FirebaseAuth.getInstance().currentUser?.email.toString()
+
+            // check if receiver really exists by email
+            val receiver = transaction.receiver
+            val usersRef = database.getReference("users")
+            val query = usersRef.orderByChild("email").equalTo(receiver)
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // user exists
+                        // add transaction to database
+                        myRef.child(id).setValue(transaction)
+                    } else {
+                        // user does not exist
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                }
+            }
+            )
+
+            // save to realtime database
+
+
+            return forException(Exception("User does not exist"))
         }
 
+        fun checkUser(receiver: String): Task<Void> {
+            // get database reference
+            val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+            val usersRef = database.getReference("users")
+            val query = usersRef.orderByChild("email").equalTo(receiver)
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                }
+            }
+            )
+
+            return forException(Exception("User does not exist"))
+        }
     }
 }

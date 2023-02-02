@@ -7,12 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
 class PageViewModel : ViewModel() {
-    // Get the transaction data of current logged in user
 
     private val _index = MutableLiveData<Int>()
     val text: LiveData<String> = Transformations.map(_index) {
-        "Hello world from section: $it"
-
+        "$it"
     }
 
     fun setIndex(index: Int) {
