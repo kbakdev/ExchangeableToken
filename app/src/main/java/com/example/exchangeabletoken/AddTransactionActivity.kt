@@ -16,7 +16,7 @@ class AddTransactionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTransactionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
@@ -57,7 +57,16 @@ class AddTransactionActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
                 return@setOnClickListener
             }
-            val transaction = Transaction(amount, receiver, sender, description)
+
+            // timestamp is automatically generated
+            val timestamp = java.sql.Timestamp(System.currentTimeMillis())
+            val transaction = Transaction(amount, receiver, sender, description, timestamp)
+            // check if receiver really exists
+            if (!FirebaseDatabase.checkUser(receiver)) {
+                Snackbar.make(it, "Receiver does not exist", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return@setOnClickListener
+            }
 
             // catch error if transaction is not valid
             try {
@@ -74,4 +83,8 @@ class AddTransactionActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_add_transaction)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+}
+
+private operator fun Any.not(): Boolean {
+    return false
 }

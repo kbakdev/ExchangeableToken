@@ -17,14 +17,6 @@ class DataBaseService {
         myRef.child(name).child("address").setValue(address.lowercase())
     }
 
-    fun addTransaction(uid: String, name: String, amount: String, type: String, date: String) {
-        val database = Firebase.database
-        val myRef = database.getReference("transactions")
-        myRef.child(uid).child(name).child("amount").setValue(amount)
-        myRef.child(uid).child(name).child("type").setValue(type)
-        myRef.child(uid).child(name).child("date").setValue(date)
-    }
-
     companion object {
         fun mockMarketData() {
             FirebaseDatabase.getMarketData().forEach {
