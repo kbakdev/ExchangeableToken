@@ -58,6 +58,7 @@ class FirebaseDatabase {
             // get database reference
             val database = com.google.firebase.database.FirebaseDatabase.getInstance()
             val myRef = database.getReference("transactions")
+<<<<<<< HEAD
             val user = FirebaseAuth.getInstance().currentUser
             val uid = user?.uid.toString()
 
@@ -78,6 +79,38 @@ class FirebaseDatabase {
                     receiverRef.setValue(balance + transaction.amount.toInt())
                 }
             }
+=======
+            val id = UUID.randomUUID().toString()
+
+            // set sender as current logged user
+            transaction.sender = FirebaseAuth.getInstance().currentUser?.email.toString()
+
+            // check if receiver really exists by email
+            val receiver = transaction.receiver
+            val usersRef = database.getReference("users")
+            val query = usersRef.orderByChild("email").equalTo(receiver)
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // user exists
+                        // add transaction to database
+                        myRef.child(id).setValue(transaction)
+                    } else {
+                        // user does not exist
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                }
+            }
+            )
+
+            // save to realtime database
+
+
+            return forException(Exception("User does not exist"))
+>>>>>>> d6b29e1 (feat: app minor upgrade)
         }
 
         fun checkUser(receiver: String): Task<Void> {
@@ -97,6 +130,7 @@ class FirebaseDatabase {
 
             return forException(Exception("User does not exist"))
         }
+<<<<<<< HEAD
 
         fun getBalance(uid: String): Any {
             // get database reference
@@ -161,5 +195,7 @@ class FirebaseDatabase {
         fun getInstance(): Any {
             return com.google.firebase.database.FirebaseDatabase.getInstance()
         }
+=======
+>>>>>>> d6b29e1 (feat: app minor upgrade)
     }
 }

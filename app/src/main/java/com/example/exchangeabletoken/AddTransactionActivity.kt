@@ -24,6 +24,10 @@ class AddTransactionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTransactionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+<<<<<<< HEAD
+=======
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
+>>>>>>> d6b29e1 (feat: app minor upgrade)
         super.onCreate(savedInstanceState)
 
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
@@ -38,10 +42,50 @@ class AddTransactionActivity : AppCompatActivity() {
 
 <<<<<<< HEAD
         // do transaction and store it in realtime database
+<<<<<<< HEAD
         binding.fab.setOnClickListener { view ->
             doTransaction(view)
         }
     }
+=======
+        binding.fab.setOnClickListener {
+            // get data from content_add_transaction.xml which is in activity_add_transaction.xml
+            val amount = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.amount).text.toString()
+            // validate amount
+            if (amount == "") {
+                // if amount is empty, or user don't have enough money, show error message
+                Snackbar.make(it, "Please enter a valid amount", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+            }
+            val receiver = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.receiver).text.toString()
+            if (receiver == "") {
+                Snackbar.make(it, "Please enter a receiver", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return@setOnClickListener
+            }
+            val sender = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.sender).text.toString()
+            if (sender == "") {
+                Snackbar.make(it, "Please enter a sender", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return@setOnClickListener
+            }
+            val description = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.description).text.toString()
+            if (description == "") {
+                Snackbar.make(it, "Please enter a description", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return@setOnClickListener
+            }
+
+            // timestamp is automatically generated
+            val timestamp = java.sql.Timestamp(System.currentTimeMillis())
+            val transaction = Transaction(amount, receiver, sender, description, timestamp)
+            // check if receiver really exists
+            if (!FirebaseDatabase.checkUser(receiver)) {
+                Snackbar.make(it, "Receiver does not exist", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return@setOnClickListener
+            }
+>>>>>>> d6b29e1 (feat: app minor upgrade)
 
     private fun doTransaction(view: View) {
         // get data from edit text
