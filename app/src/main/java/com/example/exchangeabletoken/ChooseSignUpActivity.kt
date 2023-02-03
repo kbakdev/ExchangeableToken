@@ -1,6 +1,5 @@
 package com.example.exchangeabletoken
 
-import android.content.ClipData.newIntent
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
