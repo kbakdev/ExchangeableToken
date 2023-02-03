@@ -34,11 +34,11 @@ class PlaceholderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentTransactionBinding.inflate(inflater, container, false)
         val root = binding.root
 
         val textView: TextView = binding.sectionLabel
+
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

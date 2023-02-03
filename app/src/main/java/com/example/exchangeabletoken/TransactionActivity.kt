@@ -6,8 +6,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.exchangeabletoken.ui.main.SectionsPagerAdapter
 import com.example.exchangeabletoken.databinding.ActivityTransactionBinding
+import com.example.exchangeabletoken.ui.main.SectionsPagerAdapter
 
 class TransactionActivity : AppCompatActivity() {
 

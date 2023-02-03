@@ -8,6 +8,4 @@ data class DataProduct(
     val price: Int,
     val image: Bitmap,
     val category: String
-) {
-    val message: String? = null
-}
+)
