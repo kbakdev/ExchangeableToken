@@ -159,12 +159,6 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SuccessfulSignUpActivity" />
         <activity android:name=".MarketActivity" />
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".activities.UsersListActivity"
-            android:screenOrientation="fullSensor" />
 
         <meta-data
             android:name="preloaded_fonts"
