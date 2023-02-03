@@ -17,45 +17,7 @@
             android:label="@string/title_activity_add_transaction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_version"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_version_code"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_debug"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_release"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_debuggable"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_releasable"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_testable"
-                android:value="" />
-
-            <meta-data
-                android:name="android.app.lib_is_tested"
-                android:value="" />
         </activity>
         <activity
             android:name=".TransactionActivity"
@@ -65,12 +27,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".SearchProductActivity"
@@ -78,21 +35,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
             android:theme="@style/Theme.ExchangeableToken.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".WalletStatusActivity"
@@ -100,32 +49,20 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -134,7 +71,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.VIEW" />
 
@@ -146,41 +82,16 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExchangeableTokenActivity" />
+        <activity android:name=".ExchangeableTokenActivity"/>
         <activity android:name=".ChooseSignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SuccessfulSignUpActivity" />
         <activity android:name=".MarketActivity" />
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".activities.UsersListActivity"
-            android:screenOrientation="fullSensor" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <meta-data
-            android:name="com.google.android.gms.wallet.api.enabled"
-            android:value="true" />
-
-        <meta-data
-            android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode" />
     </application>
 
 </manifest>
