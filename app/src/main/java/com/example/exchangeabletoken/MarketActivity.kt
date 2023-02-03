@@ -12,6 +12,9 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class MarketActivity : AppCompatActivity() {
+    val size: Int = 0
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -74,12 +77,5 @@ class MarketActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    operator fun get(position: Int): CharSequence? {
-        return MarketService.getMarketData()[position]
-    }
-}
-
-private operator fun Unit.get(position: Int): CharSequence? {
-    return MarketService.getMarketData()[position]
 }
 
