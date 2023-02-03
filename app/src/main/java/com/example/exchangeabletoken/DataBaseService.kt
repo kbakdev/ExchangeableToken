@@ -7,16 +7,6 @@ import com.google.firebase.ktx.Firebase
 import java.io.ByteArrayOutputStream
 
 class DataBaseService {
-    fun addUser(uid: String, name: String, email: String, phone: String, address: String) {
-        val database = Firebase.database
-        val myRef = database.getReference("users")
-        myRef.child(name).child("name").setValue(name.lowercase())
-        myRef.child(name).child("uid").setValue(uid)
-        myRef.child(name).child("email").setValue(email.lowercase())
-        myRef.child(name).child("phone").setValue(phone)
-        myRef.child(name).child("address").setValue(address.lowercase())
-    }
-
     companion object {
         fun mockMarketData() {
             FirebaseDatabase.getMarketData().forEach {

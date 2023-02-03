@@ -3,12 +3,10 @@ package com.example.exchangeabletoken
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.exchangeabletoken.databinding.ActivityAddTransactionBinding
-import com.google.firebase.database.Transaction
 
 class AddTransactionActivity : AppCompatActivity() {
 
@@ -16,7 +14,6 @@ class AddTransactionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTransactionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
