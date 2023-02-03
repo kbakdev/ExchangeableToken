@@ -86,19 +86,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SearchActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
@@ -167,28 +154,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".ExchangeableTokenActivity" />
         <activity android:name=".ChooseSignUpActivity" />
-        <activity android:name=".ChooseLogInActivity" />
-        <activity android:name=".ChooseForgotPasswordActivity" />
-        <activity android:name=".ChooseResetPasswordActivity" />
-        <activity android:name=".ChooseConfirmResetPasswordActivity" />
-        <activity android:name=".ChooseConfirmSignUpActivity" />
-        <activity android:name=".ChooseConfirmLogInActivity" />
-        <activity android:name=".ChooseConfirmForgotPasswordActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SuccessfulSignUpActivity" />
         <activity android:name=".MarketActivity" />
