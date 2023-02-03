@@ -1,5 +1,6 @@
 package com.example.exchangeabletoken
 
+import com.google.firebase.auth.FirebaseUser
 import java.sql.Timestamp
 
 class Transaction(

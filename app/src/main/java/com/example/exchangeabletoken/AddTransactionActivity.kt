@@ -3,10 +3,13 @@ package com.example.exchangeabletoken
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.exchangeabletoken.databinding.ActivityAddTransactionBinding
+import com.google.firebase.auth.FirebaseAuth
+import java.sql.Timestamp
 
 class AddTransactionActivity : AppCompatActivity() {
 
@@ -29,26 +32,36 @@ class AddTransactionActivity : AppCompatActivity() {
         // do transaction and store it in realtime database
         binding.fab.setOnClickListener {
             // get data from content_add_transaction.xml which is in activity_add_transaction.xml
-            val amount = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.amount).text.toString()
+            val amount = binding.root.findViewById<AppCompatEditText>(R.id.amount).text.toString()
             // validate amount
+            // if amount is empty, or user don't have enough money, show error message
+            val receiver = binding.root.findViewById<AppCompatEditText>(R.id.receiver).text.toString()
             if (amount == "") {
-                // if amount is empty, or user don't have enough money, show error message
-                Snackbar.make(it, "Please enter a valid amount", Snackbar.LENGTH_LONG)
+                Snackbar.make(it, "Please enter an amount", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+                return@setOnClickListener
             }
-            val receiver = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.receiver).text.toString()
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null) {
+                val uid = user.uid
+                val balance = FirebaseDatabase.getBalance(uid)
+                if (balance < amount.toInt()) {
+                    Snackbar.make(it, "You don't have enough money", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+                    return@setOnClickListener
+                }
+            }
+
             if (receiver == "") {
                 Snackbar.make(it, "Please enter a receiver", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
                 return@setOnClickListener
-            }
-            val sender = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.sender).text.toString()
-            if (sender == "") {
-                Snackbar.make(it, "Please enter a sender", Snackbar.LENGTH_LONG)
+            } else if (!FirebaseDatabase.checkUser(receiver)) {
+                Snackbar.make(it, "Receiver does not exist", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
                 return@setOnClickListener
             }
-            val description = binding.root.findViewById<androidx.appcompat.widget.AppCompatEditText>(R.id.description).text.toString()
+            val description = binding.root.findViewById<AppCompatEditText>(R.id.description).text.toString()
             if (description == "") {
                 Snackbar.make(it, "Please enter a description", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
@@ -56,7 +69,10 @@ class AddTransactionActivity : AppCompatActivity() {
             }
 
             // timestamp is automatically generated
-            val timestamp = java.sql.Timestamp(System.currentTimeMillis())
+            val timestamp = Timestamp(System.currentTimeMillis())
+            // set sender as current user
+            val sender = FirebaseAuth.getInstance().currentUser?.email.toString()
+
             val transaction = Transaction(amount, receiver, sender, description, timestamp)
             // check if receiver really exists
             if (!FirebaseDatabase.checkUser(receiver)) {
@@ -80,6 +96,10 @@ class AddTransactionActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_add_transaction)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+}
+
+private operator fun Any.compareTo(toInt: Int): Int {
+    return 0
 }
 
 private operator fun Any.not(): Boolean {

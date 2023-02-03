@@ -105,5 +105,24 @@ class FirebaseDatabase {
 
             return forException(Exception("User does not exist"))
         }
+
+        fun getBalance(uid: String): Any {
+            // get database reference
+            val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+            val myRef = database.getReference("users").child(uid).child("balance")
+            var balance = 0
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    balance = dataSnapshot.getValue(Int::class.java)!!
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                }
+            }
+            )
+
+            return balance
+        }
     }
 }
