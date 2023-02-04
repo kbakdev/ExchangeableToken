@@ -39,12 +39,24 @@ class AddTransactionActivity : AppCompatActivity() {
             if (amount == "") {
                 Snackbar.make(it, "Please enter an amount", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+                // then stop the function
                 return@setOnClickListener
             }
             val user = FirebaseAuth.getInstance().currentUser
             if (user != null) {
                 val uid = user.uid
                 val balance = FirebaseDatabase.getBalance(uid)
+                if (balance == "") {
+                    Snackbar.make(it, "You don't have enough money", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+                    return@setOnClickListener
+                }
+                // check if balance is 0
+                if (balance == "0") {
+                    Snackbar.make(it, "You don't have enough money", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+                    return@setOnClickListener
+                }
                 if (balance < amount.toInt()) {
                     Snackbar.make(it, "You don't have enough money", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show()
@@ -88,6 +100,7 @@ class AddTransactionActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Snackbar.make(it, "Transaction is not valid", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+                return@setOnClickListener
             }
         }
     }
