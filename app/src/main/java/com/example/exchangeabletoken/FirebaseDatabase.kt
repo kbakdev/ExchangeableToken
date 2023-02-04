@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import java.util.*
+import java.util.concurrent.TimeoutException
 
 class FirebaseDatabase {
     companion object {
@@ -52,40 +53,31 @@ class FirebaseDatabase {
             return Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         }
 
-        fun addTransaction(transaction: Transaction): Task<Void> {
+        fun addTransaction(transaction: Transaction, receiver: String) {
+            // implement transaction mechanism, which checks if receiver really exists, and if sender has enough money
             // get database reference
             val database = com.google.firebase.database.FirebaseDatabase.getInstance()
             val myRef = database.getReference("transactions")
-            val id = UUID.randomUUID().toString()
+            val user = FirebaseAuth.getInstance().currentUser
+            val uid = user?.uid.toString()
 
-            // set sender as current logged user
-            transaction.sender = FirebaseAuth.getInstance().currentUser?.email.toString()
 
-            // check if receiver really exists by email
-            val receiver = transaction.receiver
-            val usersRef = database.getReference("users")
-            val query = usersRef.orderByChild("email").equalTo(receiver)
-            query.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        // user exists
-                        // add transaction to database
-                        myRef.child(id).setValue(transaction)
-                    } else {
-                        // user does not exist
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Failed to read value
+            // check if receiver exists
+            checkUser(receiver).addOnSuccessListener {
+                // check if sender has enough money
+                val balance = getBalance(uid).toString().toInt()
+                if (balance >= transaction.amount.toInt()) {
+                    // add transaction to database
+                    val transactionId = myRef.push().key
+                    myRef.child(transactionId.toString()).setValue(transaction)
+                    // update sender's balance
+                    val senderRef = database.getReference("users").child(uid).child("balance")
+                    senderRef.setValue(balance - transaction.amount.toInt())
+                    // update receiver's balance
+                    val receiverRef = database.getReference("users").child(receiver).child("balance")
+                    receiverRef.setValue(balance + transaction.amount.toInt())
                 }
             }
-            )
-
-            // save to realtime database
-
-
-            return forException(Exception("User does not exist"))
         }
 
         fun checkUser(receiver: String): Task<Void> {
