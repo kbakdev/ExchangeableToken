@@ -1,13 +1,13 @@
 package com.example.exchangeabletoken
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.exchangeabletoken.databinding.ActivityAddTransactionBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import java.sql.Timestamp
 
@@ -57,11 +57,6 @@ class AddTransactionActivity : AppCompatActivity() {
                         .setAction("Action", null).show()
                     return@setOnClickListener
                 }
-                if (balance < amount.toInt()) {
-                    Snackbar.make(it, "You don't have enough money", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show()
-                    return@setOnClickListener
-                }
             }
 
             if (receiver == "") {
@@ -85,7 +80,7 @@ class AddTransactionActivity : AppCompatActivity() {
             // set sender as current user
             val sender = FirebaseAuth.getInstance().currentUser?.email.toString()
 
-            val transaction = Transaction(amount, receiver, sender, description, timestamp)
+            val transaction = Transaction(sender, receiver, amount.toInt(), description, timestamp)
             // check if receiver really exists
             if (!FirebaseDatabase.checkUser(receiver)) {
                 Snackbar.make(it, "Receiver does not exist", Snackbar.LENGTH_LONG)
@@ -95,8 +90,9 @@ class AddTransactionActivity : AppCompatActivity() {
 
             // catch error if transaction is not valid
             try {
-                FirebaseDatabase.addTransaction(transaction)
-                finish()
+                FirebaseDatabase.addTransaction(transaction, receiver)
+                Snackbar.make(it, "Transaction is successful", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
             } catch (e: Exception) {
                 Snackbar.make(it, "Transaction is not valid", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
@@ -109,10 +105,6 @@ class AddTransactionActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_add_transaction)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-}
-
-private operator fun Any.compareTo(toInt: Int): Int {
-    return 0
 }
 
 private operator fun Any.not(): Boolean {

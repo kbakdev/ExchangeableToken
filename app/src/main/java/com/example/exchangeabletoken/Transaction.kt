@@ -1,14 +1,11 @@
 package com.example.exchangeabletoken
 
-import com.google.firebase.auth.FirebaseUser
 import java.sql.Timestamp
 
 class Transaction(
     var amount: String,
     var receiver: String,
-    var sender: String,
+    var sender: Int,
     var description: String,
     var timestamp: Timestamp,
-) {
-    constructor() : this("", "", "", "", Timestamp(System.currentTimeMillis()))
-}
+)
