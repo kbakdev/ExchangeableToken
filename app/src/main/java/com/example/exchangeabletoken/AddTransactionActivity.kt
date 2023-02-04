@@ -88,11 +88,19 @@ class AddTransactionActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // get sender UID
+            val senderUID = FirebaseAuth.getInstance().currentUser?.uid.toString()
+            // get receiver UID
+            val receiverUID = FirebaseDatabase.getUID(receiver)
+
             // catch error if transaction is not valid
             try {
                 FirebaseDatabase.addTransaction(transaction, receiver)
                 Snackbar.make(it, "Transaction is successful", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+                // change balance of sender and receiver
+                FirebaseDatabase.changeBalance(senderUID, receiverUID, amount.toInt())
+                finish()
             } catch (e: Exception) {
                 Snackbar.make(it, "Transaction is not valid", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()

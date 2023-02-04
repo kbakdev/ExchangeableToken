@@ -116,5 +116,48 @@ class FirebaseDatabase {
 
             return balance
         }
+
+        fun changeBalance(sender: String, receiver: String, toInt: Int) {
+            // get database reference
+            val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+            val senderRef = database.getReference("users").child(sender).child("balance")
+            val receiverRef = database.getReference("users").child(receiver).child("balance")
+            // if receiver does not exist, return
+            if (getUID(receiver) == "") {
+                return
+            }
+            // update sender's balance
+            val senderBalance = getBalance(sender).toString().toInt()
+            senderRef.setValue(senderBalance - toInt)
+            // update receiver's balance
+            val receiverBalance = getBalance(receiver).toString().toInt()
+            receiverRef.setValue(receiverBalance + toInt)
+
+
+        }
+
+        // get user's uid by name from realtime database
+        fun getUID(name: String): String {
+            // get database reference
+            val database = com.google.firebase.database.FirebaseDatabase.getInstance()
+            val myRef = database.getReference("users")
+            var uid = ""
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for (child in dataSnapshot.children) {
+                        if (child.child("name").getValue(String::class.java) == name) {
+                            uid = child.key.toString()
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                }
+            }
+            )
+
+            return uid
+        }
     }
 }

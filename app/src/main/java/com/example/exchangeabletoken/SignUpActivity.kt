@@ -60,11 +60,12 @@ class SignUpActivity : AppCompatActivity() {
                             // save data to realtime database
                             val database = Firebase.database
                             val myRef = database.getReference("users")
-                            val user = auth.currentUser
-                            myRef.child(user?.uid.toString()).child("name").setValue(name.text.toString())
-                            myRef.child(user?.uid.toString()).child("phone").setValue(phone.text.toString())
-                            myRef.child(user?.uid.toString()).child("address").setValue(address.text.toString())
-                            myRef.child(user?.uid.toString()).child("balance").setValue(0)
+                            // save new user's data to realtime database under their email
+                            myRef.child(auth.currentUser?.uid.toString()).child("name").setValue(name.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("phone").setValue(phone.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("address").setValue(address.text.toString())
+                            myRef.child(auth.currentUser?.uid.toString()).child("balance").setValue(0)
+                            myRef.child(auth.currentUser?.uid.toString()).child("uid").setValue(auth.currentUser?.uid.toString())
                             // show that sign up is successful
                             Snackbar.make(it, "Sign up successful", Snackbar.LENGTH_SHORT).show()
                             // go to market activity
