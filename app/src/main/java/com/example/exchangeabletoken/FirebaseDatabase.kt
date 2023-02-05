@@ -123,8 +123,8 @@ class FirebaseDatabase {
             val senderRef = database.getReference("users").child(sender).child("balance")
             val receiverRef = database.getReference("users").child(receiver).child("balance")
             // if receiver does not exist, return
-            if (getUID(receiver) == "") {
-                return
+            checkUser(receiver).addOnSuccessListener {
+                return@addOnSuccessListener
             }
             // update sender's balance
             val senderBalance = getBalance(sender).toString().toInt()
@@ -136,18 +136,16 @@ class FirebaseDatabase {
 
         }
 
-        // get user's uid by name from realtime database
-        fun getUID(name: String): String {
+        fun getUID(receiver: String): String {
             // get database reference
             val database = com.google.firebase.database.FirebaseDatabase.getInstance()
             val myRef = database.getReference("users")
             var uid = ""
-            myRef.addValueEventListener(object : ValueEventListener {
+            val query = myRef.orderByChild("email").equalTo(receiver)
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    for (child in dataSnapshot.children) {
-                        if (child.child("name").getValue(String::class.java) == name) {
-                            uid = child.key.toString()
-                        }
+                    for (data in dataSnapshot.children) {
+                        uid = data.key.toString()
                     }
                 }
 
@@ -158,6 +156,10 @@ class FirebaseDatabase {
             )
 
             return uid
+        }
+
+        fun getInstance(): Any {
+            return com.google.firebase.database.FirebaseDatabase.getInstance()
         }
     }
 }
