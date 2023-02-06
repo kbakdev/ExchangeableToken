@@ -3,9 +3,9 @@ package com.example.exchangeabletoken
 import java.sql.Timestamp
 
 class Transaction(
-    var amount: String,
+    var amount: Double,
     var receiver: String,
-    var sender: Int,
+    var sender: String,
     var description: String,
     var timestamp: Timestamp,
 )
