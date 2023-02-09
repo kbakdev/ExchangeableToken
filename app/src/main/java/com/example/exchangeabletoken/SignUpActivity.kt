@@ -2,11 +2,15 @@ package com.example.exchangeabletoken
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -31,7 +35,7 @@ class SignUpActivity : AppCompatActivity() {
         val address = findViewById<EditText>(R.id.postalAddress)
         val signUp = findViewById<Button>(R.id.signUpButton)
         signUp.setOnClickListener {
-            // check if user is providig email
+            // check if user is providing email
             if (email.text.toString().isEmpty()) {
                 Snackbar.make(it, "Please enter email", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -53,19 +57,36 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // check if user with the same name doesn't already exist
+            val database = Firebase.database
+            val myRef = database.getReference("users")
+
+            myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.hasChild(name.text.toString())) {
+                        Snackbar.make(it, "User with the same name already exists", Snackbar.LENGTH_SHORT).show()
+                        return
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException())
+                }
+            })
+
             if (password.text.toString() == confirmPassword.text.toString()) {
                 auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // save data to realtime database
-                            val database = Firebase.database
-                            val myRef = database.getReference("users")
                             // save new user's data to realtime database under their email
-                            myRef.child(auth.currentUser?.uid.toString()).child("name").setValue(name.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("phone").setValue(phone.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("address").setValue(address.text.toString())
-                            myRef.child(auth.currentUser?.uid.toString()).child("balance").setValue(0)
-                            myRef.child(auth.currentUser?.uid.toString()).child("uid").setValue(auth.currentUser?.uid.toString())
+                            // save the data lowercase
+                            myRef.child(name.text.toString().toLowerCase()).child("email").setValue(email.text.toString().toLowerCase())
+                            myRef.child(name.text.toString().toLowerCase()).child("name").setValue(name.text.toString().toLowerCase())
+                            myRef.child(name.text.toString().toLowerCase()).child("phone").setValue(phone.text.toString())
+                            myRef.child(name.text.toString().toLowerCase()).child("address").setValue(address.text.toString().toLowerCase())
+                            myRef.child(name.text.toString().toLowerCase()).child("uid").setValue(auth.currentUser?.uid.toString())
+                            myRef.child(name.text.toString().toLowerCase()).child("balance").setValue(0)
                             // show that sign up is successful
                             Snackbar.make(it, "Sign up successful", Snackbar.LENGTH_SHORT).show()
                             // go to market activity
