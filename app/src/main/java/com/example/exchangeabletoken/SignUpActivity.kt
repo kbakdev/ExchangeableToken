@@ -82,11 +82,11 @@ class SignUpActivity : AppCompatActivity() {
                             // save new user's data to realtime database under their email
                             // save the data lowercase
                             myRef.child(name.text.toString().toLowerCase()).child("email").setValue(email.text.toString().toLowerCase())
-                            myRef.child(name.text.toString()).child("name").setValue(name.text.toString().toLowerCase())
-                            myRef.child(name.text.toString()).child("phone").setValue(phone.text.toString())
-                            myRef.child(name.text.toString()).child("address").setValue(address.text.toString().toLowerCase())
-                            myRef.child(name.text.toString()).child("uid").setValue(auth.currentUser?.uid.toString())
-                            myRef.child(name.text.toString()).child("balance").setValue(0)
+                            myRef.child(name.text.toString().toLowerCase()).child("name").setValue(name.text.toString().toLowerCase())
+                            myRef.child(name.text.toString().toLowerCase()).child("phone").setValue(phone.text.toString())
+                            myRef.child(name.text.toString().toLowerCase()).child("address").setValue(address.text.toString().toLowerCase())
+                            myRef.child(name.text.toString().toLowerCase()).child("uid").setValue(auth.currentUser?.uid.toString())
+                            myRef.child(name.text.toString().toLowerCase()).child("balance").setValue(0)
                             // show that sign up is successful
                             Snackbar.make(it, "Sign up successful", Snackbar.LENGTH_SHORT).show()
                             // go to market activity
