@@ -5,4 +5,5 @@
     <item name="address" type="id" />
     <item name="uid" type="id" />
     <item name="output" type="id" />
+    <item name="current_user_balance" type="id" />
 </resources>
