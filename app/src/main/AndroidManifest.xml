@@ -9,8 +9,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ExchangeableToken"
-        >
+        android:theme="@style/Theme.ExchangeableToken">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.transaction.AddTransactionActivity"
             android:exported="true"
@@ -26,7 +33,6 @@
             android:theme="@style/Theme.ExchangeableToken.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
         </activity>
         <activity
@@ -34,35 +40,31 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.product.ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
-            android:theme="@style/Theme.ExchangeableToken.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.ExchangeableToken.NoActionBar"></activity>
         <activity
             android:name=".ui.wallet.WalletStatusActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:exported="false"
-            android:label="@string/title_activity_settings">
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -70,8 +72,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -87,7 +87,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.exchange.ExchangeableTokenActivity"/>
+        <activity android:name=".ui.exchange.ExchangeableTokenActivity" />
         <activity android:name=".ui.authentication.ChooseSignUpActivity" />
         <activity android:name=".ui.authentication.LoginActivity" />
         <activity android:name=".ui.authentication.SuccessfulSignUpActivity" />
