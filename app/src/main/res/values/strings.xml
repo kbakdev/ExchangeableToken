@@ -290,4 +290,7 @@
     <string name="transaction_image">transaction_image</string>
     <string name="transaction_title">transaction_title</string>
     <string name="transaction">Transaction</string>
+    <string name="account_header">Account</string>
+    <string name="help_header">Help</string>
+    <string name="about_header">About</string>
 </resources>
