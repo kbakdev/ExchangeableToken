@@ -3,8 +3,11 @@ package com.example.exchangeabletoken.ui.authentication
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.exchangeabletoken.R
 import com.example.exchangeabletoken.ui.market.MarketActivity
@@ -37,25 +40,8 @@ class SignUpActivity : AppCompatActivity() {
         val address = findViewById<EditText>(R.id.postalAddress)
         val signUp = findViewById<Button>(R.id.signUpButton)
         signUp.setOnClickListener {
-            // check if user is providing email
-            if (email.text.toString().isEmpty()) {
-                Snackbar.make(it, "Please enter email", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // check if user is providing password
-            if (password.text.toString().isEmpty()) {
-                Snackbar.make(it, "Please enter password", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // check if user is providing confirm password
-            if (confirmPassword.text.toString().isEmpty()) {
-                Snackbar.make(it, "Please enter confirm password", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            // check if user is providing name
-            if (name.text.toString().isEmpty()) {
-                Snackbar.make(it, "Please enter name", Snackbar.LENGTH_SHORT).show()
+            // validateInputs
+            if (!validateInputs(email, password, confirmPassword, name, phone, address)) {
                 return@setOnClickListener
             }
 
@@ -106,5 +92,46 @@ class SignUpActivity : AppCompatActivity() {
                 ).show()
             }
         }
+    }
+
+    private fun validateInputs(
+        email: EditText = findViewById(R.id.email),
+        password: EditText = findViewById(R.id.password),
+        confirmPassword: EditText = findViewById(R.id.confirmPassword),
+        name: EditText = findViewById(R.id.name),
+        phone: EditText = findViewById(R.id.phone),
+        address: EditText = findViewById(R.id.postalAddress),
+    ): Boolean {
+        val inputs = arrayOf(email, password, confirmPassword, name, phone, address)
+        val messages = arrayOf(
+            "Please enter your email.",
+            "Please enter your password.",
+            "Please confirm your password.",
+            "Please enter your name.",
+            "Please enter your phone number.",
+            "Please enter your postal address."
+        )
+        for ((index, input) in inputs.withIndex()) {
+            if (input.text.toString().isEmpty()) {
+                Snackbar.make(
+                    findViewById(android.R.id.content),
+                    messages[index],
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                // use Toast
+                Toast.makeText(this, messages[index], Toast.LENGTH_SHORT).show()
+                // use AlertDialog
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Error")
+                builder.setMessage(messages[index])
+                builder.setPositiveButton("OK") { dialog, which ->
+                    dialog.dismiss()
+                }
+                builder.show()
+
+                return false
+            }
+        }
+        return true
     }
 }
