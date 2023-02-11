@@ -100,17 +100,21 @@ class AddTransactionActivity : AppCompatActivity() {
 
                 receiverUidRef.addListenerForSingleValueEvent(object: ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        // get only value of uid from snapshot
-                        val receiverUid = dataSnapshot.children.first().key.toString()
+                        // get only value of name from snapshot
+                        val receiverName = dataSnapshot.children.first().child("name").value.toString()
 
                         // check if sender has enough funds to complete the transaction
-                        val senderUid = FirebaseAuth.getInstance().currentUser!!.uid
-                        val senderRef = database.getReference("users/$senderUid/balance")
-                        val receiverBalanceRef = database.getReference("users/$receiverUid/balance")
+                        val senderName = FirebaseAuth.getInstance().currentUser?.displayName.toString()
+                        val senderRef = database.getReference("users/$senderName/balance")
+                        val receiverBalanceRef = database.getReference("users/$receiverName/balance")
 
                         senderRef.addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                val senderBalance = dataSnapshot.getValue(Double::class.java)!!
+                                val senderBalance = when (dataSnapshot.value) {
+                                    is Double -> dataSnapshot.value as Double
+                                    is Long -> (dataSnapshot.value as Long).toDouble()
+                                    else -> 0.0
+                                }
                                 if (senderBalance < amount) {
                                     Snackbar.make(view, "Insufficient funds", Snackbar.LENGTH_SHORT).show()
                                     return
