@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
         app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$MessagesFragment"
@@ -10,5 +11,9 @@
         app:icon="@drawable/sync"
         app:key="sync_header"
         app:title="@string/sync_header" />
+
+    <Preference
+        android:key="logout_key"
+        android:title="Log Out" />
 
 </PreferenceScreen>

@@ -1,10 +1,17 @@
 package com.example.exchangeabletoken.ui.settings
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.example.exchangeabletoken.R
+import com.example.exchangeabletoken.ui.authentication.ChooseSignUpActivity
+import com.example.exchangeabletoken.ui.authentication.LoginActivity
+import com.example.exchangeabletoken.ui.market.MarketActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
@@ -70,6 +77,20 @@ class SettingsActivity : AppCompatActivity(),
     }
 
     class HeaderFragment : PreferenceFragmentCompat() {
+        override fun onPreferenceTreeClick(preference: Preference): Boolean {
+            if (preference.key == "logout_key") {
+                // Logout logic here
+                FirebaseAuth.getInstance().signOut()
+
+                // Finish all activities in the task
+                val intent = Intent(activity, ChooseSignUpActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                return true
+            }
+            return false
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.header_preferences, rootKey)
         }
