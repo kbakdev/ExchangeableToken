@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.exchangeabletoken.*
 import com.example.exchangeabletoken.data.model.User
+import com.example.exchangeabletoken.ui.authentication.LoginActivity
 import com.example.exchangeabletoken.ui.product.ProductActivity
 import com.example.exchangeabletoken.ui.search.SearchProductActivity
 import com.example.exchangeabletoken.ui.settings.SettingsActivity
@@ -19,23 +20,29 @@ import com.google.firebase.ktx.Firebase
 
 class MarketActivity : AppCompatActivity() {
     val size: Int = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
+        if (Firebase.auth.currentUser == null) {
+            // Redirect the user to a different activity if they are not logged in
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
         setContentView(R.layout.market_activity)
         // set current user name for UI element with id "current_user_name" if user is logged in
-        if (Firebase.auth.currentUser != null) {
-            val currentUser = Firebase.auth.currentUser
-            val currentUserName = findViewById<TextView>(R.id.current_user_name)
-            "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
-        }
+        val currentUser = Firebase.auth.currentUser
+        val currentUserName = findViewById<TextView>(R.id.current_user_name)
+        "Hello, ${currentUser?.email}!".also { currentUserName.text = it }
+
         //  Handle log out button
         val logoutButton = findViewById<Button>(R.id.logoutButton)
         logoutButton.setOnClickListener {
             Firebase.auth.signOut()
+            // Redirect the user to a different activity after logging out
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+
         val walletButton = findViewById<FloatingActionButton>(R.id.wallet_button)
         walletButton.setOnClickListener {
             val intent = Intent(this, WalletStatusActivity::class.java)
