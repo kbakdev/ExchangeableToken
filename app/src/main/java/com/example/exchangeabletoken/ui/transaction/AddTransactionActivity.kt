@@ -38,10 +38,38 @@ class AddTransactionActivity : AppCompatActivity() {
             finish()
         }
 
-        // do transaction and store it in realtime database
+        // do transaction and store it in realtime database, but first check if fields are filled
         binding.fab.setOnClickListener { view ->
-            doTransaction(view)
+            if (validateInput()) {
+                doTransaction(view)
+            }
         }
+
+    }
+
+    private fun validateInput(): Boolean {
+        val amountEditText = binding.root.findViewById<AppCompatEditText>(R.id.amount)
+        val receiverEditText = binding.root.findViewById<AppCompatEditText>(R.id.receiver)
+        val descriptionEditText = binding.root.findViewById<AppCompatEditText>(R.id.description)
+
+        var isValid = true
+
+        if (amountEditText.text?.isEmpty() == true) {
+            amountEditText.error = "Amount is required."
+            isValid = false
+        }
+
+        if (receiverEditText.text?.isEmpty() == true) {
+            receiverEditText.error = "Receiver is required."
+            isValid = false
+        }
+
+        if (descriptionEditText.text?.isEmpty() == true) {
+            descriptionEditText.error = "Description is required."
+            isValid = false
+        }
+
+        return isValid
     }
 
     private fun doTransaction(view: View) {
