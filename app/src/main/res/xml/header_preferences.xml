@@ -13,6 +13,21 @@
         app:title="@string/sync_header" />
 
     <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$AccountFragment"
+        app:key="account_header"
+        app:title="@string/account_header" />
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$HelpFragment"
+        app:key="help_header"
+        app:title="@string/help_header" />
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$AboutFragment"
+        app:key="about_header"
+        app:title="@string/about_header" />
+
+    <Preference
         android:key="logout_key"
         android:title="Log Out" />
 

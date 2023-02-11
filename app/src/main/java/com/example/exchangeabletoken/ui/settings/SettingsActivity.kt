@@ -88,7 +88,7 @@ class SettingsActivity : AppCompatActivity(),
                 startActivity(intent)
                 return true
             }
-            return false
+            return super.onPreferenceTreeClick(preference)
         }
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -111,6 +111,18 @@ class SettingsActivity : AppCompatActivity(),
     class AboutFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.about_preferences, rootKey)
+        }
+    }
+
+    class AccountFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.account_preferences, rootKey)
+        }
+    }
+
+    class HelpFragment : PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.help_preferences, rootKey)
         }
     }
 }
