@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
     // declare firebase
@@ -75,6 +76,16 @@ class SignUpActivity : AppCompatActivity() {
                             myRef.child(name.text.toString().toLowerCase()).child("address").setValue(address.text.toString().toLowerCase())
                             myRef.child(name.text.toString().toLowerCase()).child("uid").setValue(auth.currentUser?.uid.toString())
                             myRef.child(name.text.toString().toLowerCase()).child("balance").setValue(0)
+                            // set the user's role to user
+                            myRef.child(name.text.toString().toLowerCase()).child("role").setValue("user")
+                            // set the user's status to active
+                            myRef.child(name.text.toString().toLowerCase()).child("status").setValue("active")
+                            // set the user's displayName to his name
+                            auth.currentUser?.updateProfile(
+                                com.google.firebase.auth.UserProfileChangeRequest.Builder()
+                                    .setDisplayName(name.text.toString().toLowerCase())
+                                    .build()
+                            )
                             // show that sign up is successful
                             Snackbar.make(it, "Sign up successful", Snackbar.LENGTH_SHORT).show()
                             // go to market activity
