@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 private lateinit var auth: FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
 
     // draw login activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,11 @@ class LoginActivity : AppCompatActivity() {
 
         // check if email and password are empty
         if (email.isEmpty() || password.isEmpty()) {
-            Snackbar.make(findViewById(R.id.log_in_layout), "Please fill in all fields", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(
+                findViewById(R.id.log_in_layout),
+                "Please fill in all fields",
+                Snackbar.LENGTH_LONG
+            ).show()
             return
         }
 
@@ -50,11 +55,13 @@ class LoginActivity : AppCompatActivity() {
                     updateUI(user)
                 } else {
                     // if sign in fails, display a message to the user.
-                    Snackbar.make(findViewById(R.id.log_in_layout), "Authentication failed.", Snackbar.LENGTH_LONG).show()
-                    updateUI(null)
+                    Snackbar.make(
+                        findViewById(R.id.log_in_layout),
+                        "Authentication failed.",
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
             }
-        return
     }
 
     public override fun onStart() {

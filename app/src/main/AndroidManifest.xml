@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExchangeableToken">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui.settings.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings">
             <meta-data
@@ -46,7 +46,7 @@
             android:name=".ui.product.ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
-            android:theme="@style/Theme.ExchangeableToken.NoActionBar"></activity>
+            android:theme="@style/Theme.ExchangeableToken.NoActionBar" />
         <activity
             android:name=".ui.wallet.WalletStatusActivity"
             android:exported="true">
@@ -54,10 +54,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.settings.SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
