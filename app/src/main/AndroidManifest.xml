@@ -9,10 +9,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ExchangeableToken"
-        >
+        android:theme="@style/Theme.ExchangeableToken">
         <activity
-            android:name=".AddTransactionActivity"
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.transaction.AddTransactionActivity"
             android:exported="true"
             android:label="@string/title_activity_add_transaction">
             <intent-filter>
@@ -20,65 +27,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TransactionActivity"
+            android:name=".ui.transaction.TransactionActivity"
             android:exported="true"
             android:label="@string/title_activity_transaction"
             android:theme="@style/Theme.ExchangeableToken.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
         </activity>
         <activity
-            android:name=".SearchProductActivity"
+            android:name=".ui.search.SearchProductActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProductActivity"
+            android:name=".ui.product.ProductActivity"
             android:exported="false"
             android:label="@string/title_activity_product"
-            android:theme="@style/Theme.ExchangeableToken.NoActionBar">
+            android:theme="@style/Theme.ExchangeableToken.NoActionBar" />
+        <activity
+            android:name=".ui.wallet.WalletStatusActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".WalletStatusActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings">
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SecondActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SignUpActivity"
+            android:name=".ui.activities.SecondActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,11 +73,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExchangeableTokenActivity"/>
-        <activity android:name=".ChooseSignUpActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SuccessfulSignUpActivity" />
-        <activity android:name=".MarketActivity" />
+        <activity
+            android:name=".ui.authentication.SignUpActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.exchange.ExchangeableTokenActivity" />
+        <activity android:name=".ui.authentication.ChooseSignUpActivity" />
+        <activity android:name=".ui.authentication.LoginActivity" />
+        <activity android:name=".ui.authentication.SuccessfulSignUpActivity" />
+        <activity android:name=".ui.market.MarketActivity" />
     </application>
 
 </manifest>
