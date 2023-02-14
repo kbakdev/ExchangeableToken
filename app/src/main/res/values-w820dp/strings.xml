@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product_name">Product name</string>
+    <string name="phone">Phone</string>
+    <string name="postal_address">Postal Address</string>
+    <string name="great_you_registered">Great, you registered!</string>
+    <string name="go_to_log_in">Go to Log In</string>
+    <string name="item">Item</string>
+</resources>

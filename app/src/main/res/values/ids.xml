@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="listView" type="id" />
-    <item name="appCompatButtonLogin" type="id" />
-    <item name="textViewLinkRegister" type="id" />
-    <item name="nestedScrollView" type="id" />
-    <item name="textInputLayoutEmail" type="id" />
-    <item name="textInputLayoutPassword" type="id" />
-    <item name="textInputEditTextEmail" type="id" />
-    <item name="textInputEditTextPassword" type="id" />
+
+    <item name="nav_host_fragment_content_add_transaction" type="id" />
+    <item name="address" type="id" />
+    <item name="uid" type="id" />
+    <item name="output" type="id" />
+    <item name="current_user_balance" type="id" />
 </resources>

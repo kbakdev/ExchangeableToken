@@ -1,0 +1,34 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$MessagesFragment"
+        app:icon="@drawable/messages"
+        app:key="messages_header"
+        app:title="@string/messages_header" />
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$SyncFragment"
+        app:icon="@drawable/sync"
+        app:key="sync_header"
+        app:title="@string/sync_header" />
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$AccountFragment"
+        app:key="account_header"
+        app:title="@string/account_header" />
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$HelpFragment"
+        app:key="help_header"
+        app:title="@string/help_header" />
+
+    <Preference
+        app:fragment="com.example.exchangeabletoken.ui.settings.SettingsActivity$AboutFragment"
+        app:key="about_header"
+        app:title="@string/about_header" />
+
+    <Preference
+        android:key="logout_key"
+        android:title="Log Out" />
+
+</PreferenceScreen>
