@@ -1,19 +1,19 @@
 <resources>
-    <string name="app_name">ExchangeableToken</string>
-    <string name="welcome_message">Welcome to ExchangeableToken!</string>
-    <string name="button_text">NEXT</string>
-    <string name="login_failed" />
-    <string name="login_success_message" />
-    <string name="initial_title" />
-    <string name="logged_in_title" />
+    <string name="app_name" translatable="false">ExchangeableToken</string>
+    <string name="welcome_message" translatable="false">Welcome to Exchangeable Token!</string>
+    <string name="button_text" translatable="false">Next</string>
+    <string name="login_failed" translatable="false" />
+    <string name="login_success_message" translatable="false" />
+    <string name="initial_title" translatable="false" />
+    <string name="logged_in_title" translatable="false" />
     <string name="logged_out_title" />
     <string name="user_profile_message" />
     <string name="log_in">log in</string>
     <string name="text_accounts">All Accounts</string>
-    <string name="hint_name">Name</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="hint_name">Name*</string>
+    <string name="hint_email">Email*</string>
+    <string name="hint_password">Password*</string>
+    <string name="hint_confirm_password">Confirm Password*</string>
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
     <string name="error_message_name">Enter Full Name</string>
@@ -27,6 +27,270 @@
     <string name="error_password_match">Password Does Not Matches</string>
     <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="action_settings">Settings</string>
-    <string name="text_hello">Hello,</string>
+    <string name="text_hello">Hello, ${current_user}</string>
+    <string name="text_hello2">You have PLN 0.00 to spend.</string>
     <string name="text_title">Android Tutorials Hub</string>
+    <string name="wallet">wallet</string>
+    <string name="logout">logout</string>
+    <string name="legend">* - data marked with this symbol are required for registration</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="sync_summary_on">Synchronize email every 15 minutes</string>
+
+    <!-- Other Preferences -->
+    <string name="signature_summary">Your signature will be added to the end of your outgoing
+        messages</string>
+    <string name="reply_summary">Choose the default action for replying to messages</string>
+    <string name="sync_summary_off">Do not synchronize email</string>
+    <string name="sync_interval_title">Sync interval</string>
+    <string name="sync_interval_summary">Choose how often you want to sync your email</string>
+    <string name="sync_interval_15">15 minutes</string>
+    <string name="sync_interval_30">30 minutes</string>
+    <string name="sync_interval_60">1 hour</string>
+    <string name="sync_interval_180">3 hours</string>
+    <string name="sync_interval_360">6 hours</string>
+    <string name="sync_interval_720">12 hours</string>
+    <string name="sync_interval_1440">24 hours</string>
+    <string name="reply_to_all">Reply to all</string>
+    <string name="reply_to_sender">Reply to sender</string>
+    <string name="reply_to_none">Do not reply</string>
+    <string name="signature_default">Sent from my Android device</string>
+    <string name="signature_hint">Enter your signature</string>
+    <string name="signature_dialog_title">Signature</string>
+    <string name="signature_dialog_message">Enter your signature</string>
+    <string name="signature_dialog_ok">OK</string>
+    <string name="signature_dialog_cancel">Cancel</string>
+    <string name="signature_dialog_clear">Clear</string>
+    <string name="signature_dialog_clear_confirm">Are you sure you want to clear your signature?</string>
+    <string name="signature_dialog_clear_yes">Yes</string>
+    <string name="signature_dialog_clear_no">No</string>
+    <string name="signature_dialog_error">Unable to save signature</string>
+    <string name="signature_dialog_error_title">Error</string>
+    <string name="signature_dialog_error_ok">OK</string>
+    <string name="signature_dialog_error_message">Unable to save signature</string>
+    <string name="signature_dialog_error_details">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_auth">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_network">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_server">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_io">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_parse">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_security">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_ssl">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_certificate">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_timeout">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown_host">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_connect">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unknown_service">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_protocol">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_failed">There was an error saving your signature. Please
+    try again.</string>
+    <string name="signature_dialog_error_details_cancelled">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unavailable">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_found">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_conflict">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_compression">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_gone">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_length_required">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_precondition">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_too_large">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_type">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_encoding">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_unsupported_charset">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_retry">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_redirect">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_client">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_blocked">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_transparent">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_secure">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_trusted">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_available">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_allowed">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_implemented">There was an error saving your signature. Please
+        try again.</string>
+    <string name="signature_dialog_error_details_not_supported">There was an error saving your signature. Please
+        try again.</string>
+    <string name="virtual_keyboard">Virtual Keyboard</string>
+    <string name="virtual_keyboard_description">Use the virtual keyboard to enter text</string>
+    <string name="virtual_keyboard_title">Virtual Keyboard</string>
+    <string name="virtual_keyboard_message">Use the virtual keyboard to enter text</string>
+    <string name="virtual_keyboard_ok">OK</string>
+    <string name="virtual_keyboard_cancel">Cancel</string>
+    <string name="virtual_keyboard_error">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_network">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_server">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_io">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_parse">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_security">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_ssl">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_certificate">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_timeout">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown_host">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_connect">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unknown_service">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_protocol">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unsupported">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_failed">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_cancelled">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_unavailable">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_not_found">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_keyboard_error_details_conflict">There was an error using the virtual keyboard. Please try again.</string>
+    <string name="virtual_wallet">Virtual Wallet</string>
+    <string name="virtual_wallet_account_balance">PLN 0.00 to spend</string>
+    <string name="virtual_wallet_description">This is your virtual wallet.</string>
+    <string name="virtual_wallet_account_balance_title">Virtual Wallet</string>
+    <string name="virtual_wallet_account_balance_message">PLN 0.00 to spend</string>
+    <string name="virtual_wallet_account_balance_ok">OK</string>
+    <string name="virtual_wallet_account_balance_cancel">Cancel</string>
+    <string name="virtual_wallet_account_balance_error">There was an error using the virtual wallet. Please try again.</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_transaction">TransactionActivity</string>
+    <string name="tab_text_1">Credit</string>
+    <string name="tab_text_2">Debit</string>
+    <string name="tab_text_3">History</string>
+    <string name="title_activity_add_transaction">AddTransactionActivity</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="todo">TODO</string>
+    <string name="wallet_currency">Wallet Currency</string>
+    <string name="wallet_balance">Wallet Balance</string>
+    <string name="wallet_name">Wallet Name</string>
+    <string name="wallet_status">Wallet Status</string>
+    <string name="name">Name</string>
+    <string name="textview">TextView</string>
+    <string name="amount">Amount</string>
+    <string name="button">Button</string>
+    <string name="do_transaction">Do transaction</string>
+    <string name="receiver">Receiver</string>
+    <string name="sender">Sender</string>
+    <string name="description">Description</string>
+    <string name="text_user_info">User Info</string>
+    <string name="scan">scan</string>
+    <string name="transactions">transactions</string>
+    <string name="search_product">search_product</string>
+    <string name="product">product</string>
+    <string name="settings">settings</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="choose_sign_up">Choose Sign Up</string>
+    <string name="please_log_in_to_use_application">Please log in to use application</string>
+    <string name="upload_image">UPLOAD IMAGE</string>
+    <string name="product_category">Product category</string>
+    <string name="product_price">Product price</string>
+    <string name="price">Price</string>
+    <string name="product_name">Product name</string>
+    <string name="fab_content_description">Fab Content Description</string>
+    <string name="search_product_by_category">Search Product By Category</string>
+    <string name="welcome_to_this_application">Welcome to this application.</string>
+    <string name="this_app_is_designed_to_make_it_easier_for_users_to_exchange_nfts">This app is designed to make it easier for users to exchange NFTs.</string>
+    <string name="the_app_has_been_designed_from_scratch_by_kacper_b_k">The app has been designed from scratch by Kacper Bąk.</string>
+    <string name="this_app_was_developed_as_part_of_an_engineering_thesis_for_wsb_academy">This app was developed as part of an engineering thesis for WSB Academy.</string>
+    <string name="proceed">Proceed</string>
+    <string name="phone">Phone</string>
+    <string name="postal_address">Postal Address</string>
+    <string name="great_you_registered">Great, you registered!</string>
+    <string name="go_to_log_in">Go to Log In</string>
+    <string name="item">Item</string>
+    <string name="transaction_image">transaction_image</string>
+    <string name="transaction_title">transaction_title</string>
+    <string name="transaction">Transaction</string>
+    <string name="account_header">Account</string>
+    <string name="help_header">Help</string>
+    <string name="about_header">About</string>
 </resources>
