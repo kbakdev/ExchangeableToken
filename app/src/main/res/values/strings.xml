@@ -287,9 +287,7 @@
     <string name="great_you_registered">Great, you registered!</string>
     <string name="go_to_log_in">Go to Log In</string>
     <string name="item">Item</string>
-    <string name="transaction_image">transaction_image</string>
-    <string name="transaction_title">transaction_title</string>
-    <string name="transaction">Transaction</string>
+
     <string name="transaction_image">transaction_image</string>
     <string name="transaction_title">transaction_title</string>
     <string name="transaction">Transaction</string>
