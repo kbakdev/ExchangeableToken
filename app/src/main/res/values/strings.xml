@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">ExchangeableToken</string>
-    <string name="welcome_message" translatable="false">Welcome to \n Exchangeable \n Token!</string>
-    <string name="button_text" translatable="false">NEXT</string>
+    <string name="welcome_message" translatable="false">Welcome to Exchangeable Token!</string>
+    <string name="button_text" translatable="false">Next</string>
     <string name="login_failed" translatable="false" />
     <string name="login_success_message" translatable="false" />
     <string name="initial_title" translatable="false" />
