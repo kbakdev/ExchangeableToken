@@ -4,9 +4,9 @@
         <color name="colorPrimaryDark">#51d8c7</color>
         <color name="colorAccent">#FFFFFF</color>
         <color name="colorBackground">#2D00FF</color>
-        <color name="colorText">#FFFFFF</color>
+        <color name="colorText">#D6D6D6</color>
         <color name="colorTextHint">#51d8c7</color>
-    <color name="colorTextError">#FF0000</color>
+    <color name="colorTextError">#f71515</color>
     <color name="colorTextSuccess">#00FF00</color>
     <color name="colorTextWarning">#FFA500</color>
     <color name="colorTextInfo">#0000FF</color>
@@ -17,4 +17,5 @@
     <color name="colorTextBlack">#000000</color>
     <color name="colorTextPrimary">#51d8c7</color>
     <color name="colorTextSecondary">#6c757d</color>
+    <color name="backgroundColor">#191818</color>
     </resources>
