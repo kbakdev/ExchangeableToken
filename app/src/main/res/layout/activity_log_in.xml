@@ -8,6 +8,7 @@
                                                    android:background="@color/backgroundColor">
 
     <TextView
+
             android:id="@+id/textView2"
             android:layout_marginRight="50dp"
             android:layout_marginLeft="50dp"
@@ -23,6 +24,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.24000001"/>
     <EditText
+            android:textColor="@color/colorText"
             android:id="@+id/log_in_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +38,7 @@
             app:layout_constraintVertical_bias="0.0" android:layout_marginTop="16dp"/>
 
     <EditText
-
+            android:textColor="@color/colorText"
             android:id="@+id/log_in_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
