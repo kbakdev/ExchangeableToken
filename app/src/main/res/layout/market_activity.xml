@@ -63,69 +63,75 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="277dp"
-        android:layout_height="705dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="4dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547">
+            android:id="@+id/linearLayout"
+            android:layout_width="277dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.547">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/search_product_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_settings_24"
+                android:contentDescription="@string/settings"
+                tools:ignore="ImageContrastCheck"
+        />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/transactions_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_settings_24"
+                android:contentDescription="@string/settings"
+                tools:ignore="ImageContrastCheck"
+        />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/product_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_settings_24"
+                android:contentDescription="@string/settings"
+                tools:ignore="ImageContrastCheck"
+        />
+        <TextView
+                android:id="@+id/current_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:fontFamily="@font/paytone_one"
+                android:gravity="center"
+                android:text="@string/text_hello"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/current_user_name"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:fontFamily="@font/paytone_one"
-            android:gravity="center"
-            android:text="@string/text_hello"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/user_info"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="@string/text_user_info"
-            android:textColor="#000000" />
-
+                android:id="@+id/user_info"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/text_user_info"
+                android:textColor="#000000"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="409dp"
-            android:layout_height="601dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/product_button"
-            android:layout_width="76dp"
-            android:layout_height="72dp"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_settings_24"
-            android:contentDescription="@string/settings"
-            tools:ignore="ImageContrastCheck" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0"/>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/transactions_button"
-            android:layout_width="76dp"
-            android:layout_height="72dp"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_settings_24"
-            android:contentDescription="@string/settings"
-            tools:ignore="ImageContrastCheck" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
