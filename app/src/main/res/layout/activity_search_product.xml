@@ -16,14 +16,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/search_product_button2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_settings_24"
+                android:contentDescription="@string/settings"
+                tools:ignore="ImageContrastCheck"
+        />
         <EditText
-            android:id="@+id/search_product_by_category_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/search_product_by_category"
-            android:inputType="textPersonName"
-            android:autofillHints="" />
+                android:id="@+id/search_product_by_category_field"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="@string/search_product_by_category"
+                android:inputType="textPersonName"
+                android:autofillHints=""/>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar3"
@@ -32,14 +41,6 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/search_product_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_search_24"
-            android:contentDescription="@string/search_product" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_recycler_view"
