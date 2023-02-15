@@ -16,7 +16,7 @@ class SearchProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_product)
         // handle search product button
-        val searchProductButton = findViewById<FloatingActionButton>(R.id.search_product_button)
+        val searchProductButton = findViewById<FloatingActionButton>(R.id.search_product_button2)
         searchProductButton.setOnClickListener {
             // get the products by category from database
             // get input from field
