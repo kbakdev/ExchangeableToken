@@ -8,7 +8,7 @@
     <string name="logged_in_title" translatable="false" />
     <string name="logged_out_title" />
     <string name="user_profile_message" />
-    <string name="log_in">log in</string>
+    <string name="log_in">Log In</string>
     <string name="text_accounts">All Accounts</string>
     <string name="hint_name">Name*</string>
     <string name="hint_email">Email*</string>
