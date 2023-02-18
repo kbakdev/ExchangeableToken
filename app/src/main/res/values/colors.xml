@@ -18,4 +18,5 @@
     <color name="colorTextPrimary">#51d8c7</color>
     <color name="colorTextSecondary">#6c757d</color>
     <color name="backgroundColor">#191818</color>
+    <color name="light_grey">#2B2B2B</color>
     </resources>
